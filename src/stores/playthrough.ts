@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { type Requirements, getRegionData } from "../data/map";
-import { useOptions } from "./config";
+import { optionsData, useOptions, type Options } from "./config";
 import { allItems } from "@/data/items";
 
 export type PlaythroughProps = {
@@ -315,8 +315,18 @@ export const usePlaythrough = defineStore("playthrough", {
 			}
 			const regionReqs = region ? getRegionData(region).reqs : null;
 			return (
-				resolveRequirement(regionReqs ?? null, "and") &&
-				resolveRequirement(reqs, "and")
+				resolveRequirement(
+					regionReqs ?? null,
+					this.items,
+					this.checks,
+					options.$state.options
+				) &&
+				resolveRequirement(
+					reqs,
+					this.items,
+					this.checks,
+					options.$state.options
+				)
 			);
 		},
 		locationIsRandomized(check: string) {
@@ -397,41 +407,47 @@ export const usePlaythrough = defineStore("playthrough", {
 	},
 });
 
-const resolveRequirement = (
+export const resolveRequirement = (
 	reqs: Requirements,
-	operation: "and" | "or"
+	items: string[],
+	checks: string[],
+	settings: Options,
+	operation: "and" | "or" = "and"
 ): boolean => {
-	const playthrough = usePlaythrough();
-	const options = useOptions();
-
 	if (reqs === null) {
 		return true;
 	} else if (typeof reqs === "boolean") {
 		return reqs;
 	} else if (typeof reqs === "string") {
-		return playthrough.hasItem(reqs);
+		return items.includes(reqs);
 	} else if (typeof reqs === "number") {
 		return (
-			playthrough.filterItems([
-				"Eldstar",
-				"Mamar",
-				"Skolar",
-				"Muskular",
-				"Misstar",
-				"Klevar",
-				"Kalmar",
-			]).length >= reqs
+			items.filter(el =>
+				[
+					"Eldstar",
+					"Mamar",
+					"Skolar",
+					"Muskular",
+					"Misstar",
+					"Klevar",
+					"Kalmar",
+				].includes(el)
+			).length >= reqs
 		);
 	} else if (typeof reqs === "function") {
 		return reqs({
-			items: playthrough.$state.items,
-			checks: playthrough.$state.checks,
-			settings: options.$state.options,
+			items,
+			checks,
+			settings,
 		});
 	} else if (operation === "and") {
-		return reqs.every(el => resolveRequirement(el, "or"));
+		return reqs.every(el =>
+			resolveRequirement(el, items, checks, settings, "or")
+		);
 	} else if (operation === "or") {
-		return reqs.some(el => resolveRequirement(el, "and"));
+		return reqs.some(el =>
+			resolveRequirement(el, items, checks, settings, "and")
+		);
 	} else {
 		console.error("error in resolveRequirement", reqs);
 		throw "error in resolveRequirement";

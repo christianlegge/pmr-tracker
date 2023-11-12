@@ -401,7 +401,9 @@ const storageOptions = storageOptionsStr
 	  })
 	: {};
 
-const defaultOptions: Options = Object.getOwnPropertyNames(optionsData).reduce(
+export const defaultOptions: Options = Object.getOwnPropertyNames(
+	optionsData
+).reduce(
 	(a, v) => ({ ...a, [v]: optionsData[v as keyof typeof optionsData].default }),
 	{} as Options
 );

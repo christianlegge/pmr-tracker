@@ -1,5 +1,5 @@
-import { allItems } from "@/data/items";
-import type { Options } from "@/stores/config";
+import { allItems } from "../data/items";
+import type { Options } from "../stores/config";
 
 export const has3Letters = ({
 	items,

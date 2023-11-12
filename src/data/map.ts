@@ -1,6 +1,6 @@
-import type { Options } from "@/stores/config";
+import type { Options } from "../stores/config";
 import * as logic from "../utils/logic";
-import { has3Letters } from "@/utils/letterLogic";
+import { has3Letters } from "../utils/letterLogic";
 
 export type Requirements =
 	| null
@@ -4503,6 +4503,16 @@ const regionData: MapRegions = {
 		},
 	},
 };
+
+export function getRequirements(area: string, check: string) {
+	const regionEntry = Object.entries(regionData).find(([_, v]) =>
+		Object.getOwnPropertyNames(v.areas).includes(area)
+	);
+	if (!regionEntry) {
+		throw new Error(`Area ${area} not found`);
+	}
+	return regionData[regionEntry[0]].areas[area].checks[check].reqs;
+}
 
 export const kootReqs = Object.values(regionData)
 	.flatMap(v =>

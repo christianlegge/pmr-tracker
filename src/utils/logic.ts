@@ -1,4 +1,4 @@
-import type { Options } from "@/stores/config";
+import type { Options } from "../stores/config";
 
 export function canReachToadTown({
 	items,

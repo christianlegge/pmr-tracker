@@ -10,7 +10,8 @@
 		"type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --max-warnings 0 --ignore-path .gitignore",
 		"format": "prettier --write src/",
-		"check-format": "prettier --check src/"
+		"check-format": "prettier --check src/",
+		"test": "jest"
 	},
 	"dependencies": {
 		"@floating-ui/vue": "^1.0.2",
