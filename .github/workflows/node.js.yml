@@ -33,6 +33,7 @@ jobs:
       - run: pnpm type-check
       - run: pnpm lint
       - run: pnpm build
+      - run: pnpm test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
