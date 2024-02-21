@@ -346,6 +346,7 @@ export const usePlaythrough = defineStore("playthrough", {
 				Merlow: settings.merlowRandomized,
 				Upgrade: settings.superBlocksRandomized,
 				"Multicoin Block": settings.multicoinBlocksRandomized,
+				"Closed Forest": !settings.forestOpen,
 			};
 
 			if (check.startsWith("[")) {

@@ -11,7 +11,7 @@ const itemsToShow = computed(() =>
 	itemSearch.value
 		? allItems.filter(el =>
 				el.name.toLowerCase().includes(itemSearch.value.toLowerCase().trim())
-		  )
+			)
 		: allItems
 );
 </script>

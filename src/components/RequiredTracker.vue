@@ -27,8 +27,8 @@ function equipmentTooltip(item: string) {
 		return playthrough.hasItem(_ultra)
 			? _ultra
 			: playthrough.hasItem(_super)
-			? _super
-			: item;
+				? _super
+				: item;
 	} else {
 		return item;
 	}

@@ -168,7 +168,7 @@ const shouldGlow = computed(() => {
 					? playthroughStore.addItem(
 							derivedData.adding,
 							powerStarNum || multiple
-					  )
+						)
 					: playthroughStore.toggleItem(name)
 			"
 			@contextmenu.prevent="

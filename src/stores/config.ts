@@ -398,7 +398,7 @@ const storageOptions = storageOptionsStr
 	? (JSON.parse(storageOptionsStr) as {
 			options?: Partial<Options>;
 			itemFilters?: Record<string, ItemFilter>;
-	  })
+		})
 	: {};
 
 const defaultOptions: Options = Object.getOwnPropertyNames(optionsData).reduce(

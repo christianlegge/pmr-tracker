@@ -36,9 +36,9 @@
 		"eslint": "^8.51.0",
 		"eslint-plugin-vue": "^9.17.0",
 		"npm-run-all2": "^6.0.6",
-		"prettier": "^3.0.3",
+		"prettier": "^3.2.4",
 		"typescript": "~5.2.2",
-		"vite": "^4.4.9",
+		"vite": "^4.5.2",
 		"vite-bundle-visualizer": "^0.10.0",
 		"vue-tsc": "^1.8.11"
 	},
