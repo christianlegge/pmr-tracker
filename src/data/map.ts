@@ -3409,7 +3409,7 @@ const regionData: MapRegions = {
 						reqs: logic.canBreakBlocksAbove,
 					},
 					"Item on top of brick block": {
-						reqs: ["Ultra Boots", ["Boots", "Kooper"]],
+						reqs: [["Ultra Boots", ["Boots", "Kooper"]]],
 					},
 					"Item on platform halfway down second zip line": {
 						reqs: "Boots",
