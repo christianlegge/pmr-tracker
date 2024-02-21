@@ -2431,10 +2431,7 @@ const regionData: MapRegions = {
 	"Boo's Mansion": {
 		reqs: [
 			logic.canReachToadTown,
-			[
-				[logic.forestOpen, "Forest Pass"],
-				[logic.canClimbLedges, "Super Boots"],
-			],
+			[logic.forestOpen, "Forest Pass", "Super Boots"],
 		],
 		areas: {
 			"Bow's Room": {
@@ -2593,7 +2590,7 @@ const regionData: MapRegions = {
 	"Gusty Gulch": {
 		reqs: [
 			logic.canReachToadTown,
-			[[logic.forestOpen, "Forest Pass"], "Super Boots"],
+			[logic.forestOpen, "Forest Pass", "Super Boots"],
 			"Boots",
 			"Boo's Portrait",
 		],
@@ -2692,7 +2689,7 @@ const regionData: MapRegions = {
 	"Tubba's Castle": {
 		reqs: [
 			logic.canReachToadTown,
-			[[logic.forestOpen, "Forest Pass"], "Super Boots"],
+			[logic.forestOpen, "Forest Pass", "Super Boots"],
 			"Boots",
 			"Boo's Portrait",
 			"Parakarry",
