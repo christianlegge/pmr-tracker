@@ -720,6 +720,9 @@ const regionData: MapRegions = {
 					"[Panel] By guard house": {
 						reqs: logic.canFlipPanel,
 					},
+					"[Closed Forest] Talk to Fice T.": {
+						reqs: null,
+					},
 					"[Letter] Fice T.": { reqs: ["Fice T.", "Parakarry"] },
 					"Bub-ulb": { reqs: logic.canClimbLedges },
 					"Give Frying Pan to Tayce T.": { reqs: "Frying Pan" },
