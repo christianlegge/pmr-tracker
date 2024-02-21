@@ -191,6 +191,7 @@ export function desertAccess({
 		settings.startingLocation === "Dry Dry Outpost" ||
 		(canReachToadTown({ items, checks, settings }) &&
 			(((items.includes("Bombette") || settings.mtRuggedOpen) &&
+				items.includes("Boots") &&
 				items.includes("Parakarry")) ||
 				(items.includes("Boots") && items.includes("Super Hammer"))))
 	);
