@@ -1725,7 +1725,7 @@ const regionData: MapRegions = {
 		reqs: [
 			[
 				[logic.canReachToadTown, ["Bombette", logic.mtRuggedOpen]],
-				[logic.desertAccess, logic.canClimbLedges],
+				logic.desertAccess,
 			],
 		],
 		areas: {
@@ -1734,28 +1734,28 @@ const regionData: MapRegions = {
 				col: 2,
 				checks: {
 					"[Coin Block] ? Block left after taking spring": {
-						reqs: [logic.canClimbLedges, logic.canBreakGroundBlocks],
+						reqs: [["Boots", logic.desertAccess], logic.canBreakGroundBlocks],
 					},
 					"[Coinsanity] Circle of items across Parakarry gap": {
-						reqs: [logic.canClimbLedges, "Parakarry"],
+						reqs: [["Boots", logic.desertAccess], "Parakarry"],
 					},
 					"[Coinsanity] 2 items on ground below Parakarry gap": {
-						reqs: logic.canClimbLedges,
+						reqs: [["Boots", logic.desertAccess]],
 					},
 					"? Block by Cleft when entering room": {
-						reqs: [logic.canClimbLedges, logic.canBreakBlocksAbove],
+						reqs: [["Boots", logic.desertAccess], logic.canBreakBlocksAbove],
 					},
 					"Chest in cave": {
-						reqs: logic.canClimbLedges,
+						reqs: [["Boots", logic.desertAccess]],
 					},
 					"Item across Parakarry gap": {
-						reqs: [logic.canClimbLedges, "Parakarry"],
+						reqs: [["Boots", logic.desertAccess], "Parakarry"],
 					},
 					"? Block past Cleft after spring": {
-						reqs: [logic.canClimbLedges, logic.canBreakGroundBlocks],
+						reqs: [["Boots", logic.desertAccess], logic.canBreakGroundBlocks],
 					},
 					"Item on far right ledge": {
-						reqs: logic.canClimbLedges,
+						reqs: [["Boots", logic.desertAccess]],
 					},
 				},
 			},
@@ -1765,13 +1765,16 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"[Panel] By wall near end of slide": {
-						reqs: [logic.canClimbLedges, logic.canFlipPanel],
+						reqs: [["Boots", logic.desertAccess], logic.canFlipPanel],
 					},
 					"Item on first ledge": {
-						reqs: [logic.canClimbLedges, ["Kooper", "Parakarry"]],
+						reqs: [
+							["Boots", logic.desertAccess],
+							["Kooper", "Parakarry"],
+						],
 					},
 					"Item on second ledge": {
-						reqs: [logic.canClimbLedges, "Parakarry"],
+						reqs: [["Boots", logic.desertAccess], "Parakarry"],
 					},
 				},
 			},
@@ -1781,10 +1784,10 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"Bub-ulb": {
-						reqs: [logic.canClimbLedges, "Parakarry"],
+						reqs: [["Boots", logic.desertAccess], "Parakarry"],
 					},
 					"Item on support beam when falling through opening at the top": {
-						reqs: logic.canClimbLedges,
+						reqs: [["Boots", logic.desertAccess]],
 					},
 				},
 			},
@@ -1793,7 +1796,7 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					"Item on ground by Cleft": {
-						reqs: [logic.canClimbLedges, ["Parakarry", logic.desertAccess]],
+						reqs: [["Boots", ["Parakarry", logic.desertAccess]]],
 					},
 				},
 			},
@@ -1805,13 +1808,17 @@ const regionData: MapRegions = {
 						reqs: null,
 					},
 					"Give three letters to Parakarry": {
-						reqs: [logic.canClimbLedges, has3Letters],
+						reqs: [["Boots", logic.desertAccess], has3Letters],
 					},
 					"[Foliage Coin] All 3 other bushes": {
 						reqs: null,
 					},
 					"[Upgrade] Super Block": {
-						reqs: ["Super Hammer", logic.canBreakBlocksAbove],
+						reqs: [
+							["Boots", logic.desertAccess],
+							"Super Hammer",
+							logic.canBreakBlocksAbove,
+						],
 					},
 				},
 			},
@@ -1820,13 +1827,13 @@ const regionData: MapRegions = {
 				col: 2,
 				checks: {
 					"[Coinsanity] Three items on slide": {
-						reqs: logic.canClimbLedges,
+						reqs: [["Boots", logic.desertAccess]],
 					},
 					"Hit Whacka": {
-						reqs: [logic.canClimbLedges, "Hammer"],
+						reqs: [["Boots", logic.desertAccess], "Hammer"],
 					},
 					"? Block": {
-						reqs: [logic.canClimbLedges, logic.canBreakBlocksAbove],
+						reqs: [["Boots", logic.desertAccess], logic.canBreakBlocksAbove],
 					},
 				},
 			},

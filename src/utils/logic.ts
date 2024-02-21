@@ -65,9 +65,9 @@ export default {
 				(settings.startingLocation === "Yoshi Village" &&
 					(items.includes("Watt") || settings.whaleOpen))) &&
 				(((items.includes("Bombette") || settings.mtRuggedOpen) &&
+					items.includes("Boots") &&
 					items.includes("Parakarry")) ||
-					((items.includes("Boots") || items.includes("Parakarry")) &&
-						items.includes("Super Hammer"))))
+					(items.includes("Boots") && items.includes("Super Hammer"))))
 		);
 	},
 	forestOpen(this: void, items: string[], settings: Options) {
