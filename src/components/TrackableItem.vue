@@ -6,7 +6,7 @@ import { chapterRewards, getRewardReqs } from "@/data/map";
 import type { TrackableItemInfo } from "@/types/items";
 import { useOptions } from "../stores/config";
 import type { PlaythroughProps } from "../stores/playthrough";
-import { kootReqs, getRegionData } from "../data/map";
+import { kootReqs } from "../data/map";
 import { getImageUrl } from "@/utils/helpers";
 import {
 	useFloating,
