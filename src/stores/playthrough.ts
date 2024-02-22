@@ -318,6 +318,8 @@ export const usePlaythrough = defineStore("playthrough", {
 			}
 		},
 		getRegionRequirements(region: string) {
+			const options = useOptions();
+
 			if (!Object.getOwnPropertyNames(dungeonRegions).includes(region)) {
 				return getRegionData(region).reqs;
 			}
@@ -327,7 +329,9 @@ export const usePlaythrough = defineStore("playthrough", {
 				el => this.spiritAnnotations[el].entrance === dungeonRegions[region]
 			);
 			if (!shuffledEntrance) {
-				return getRegionData(region).reqs;
+				return options.options.dungeonShuffle
+					? false
+					: getRegionData(region).reqs;
 			}
 			const shuffledDungeon = Object.getOwnPropertyNames(dungeonRegions).find(
 				r => dungeonRegions[r] === shuffledEntrance
