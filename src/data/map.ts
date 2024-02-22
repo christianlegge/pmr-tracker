@@ -1516,7 +1516,7 @@ const regionData: MapRegions = {
 				col: 4,
 				checks: {
 					Eldstar: {
-						reqs: chapterRewardReqs.Eldstar,
+						reqs: logic.multipleItemCheck("Fortress Key", 4),
 					},
 				},
 			},
@@ -2259,7 +2259,12 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					Mamar: {
-						reqs: chapterRewardReqs.Mamar,
+						reqs: [
+							"Pyramid Stone",
+							"Diamond Stone",
+							"Lunar Stone",
+							logic.multipleItemCheck("Ruins Key", 3),
+						],
 					},
 				},
 			},
@@ -2947,7 +2952,7 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					Muskular: {
-						reqs: chapterRewardReqs.Muskular,
+						reqs: ["Toy Train", "Cake", "Bombette", "Watt", "Hammer"],
 					},
 				},
 			},
@@ -3383,7 +3388,7 @@ const regionData: MapRegions = {
 				col: 10,
 				checks: {
 					Misstar: {
-						reqs: chapterRewardReqs.Misstar,
+						reqs: [logic.canBreakVolcanoBlocks, "Boots"],
 					},
 				},
 			},
@@ -3422,7 +3427,14 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					Klevar: {
-						reqs: chapterRewardReqs.Klevar,
+						reqs: [
+							"Magical Bean",
+							"Fertile Soil",
+							"Miracle Water",
+							"Lakilester",
+							"Super Boots",
+							"Hammer",
+						],
 					},
 				},
 			},
@@ -4008,7 +4020,7 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					Kalmar: {
-						reqs: chapterRewardReqs.Kalmar,
+						reqs: ["Red Key", "Palace Key", "Kooper", "Hammer", "Bombette"],
 					},
 				},
 			},
