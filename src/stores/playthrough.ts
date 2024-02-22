@@ -114,6 +114,16 @@ const init: PlaythroughProps = {
 	...storagePlaythrough,
 };
 
+const dungeonRegions = {
+	"Koopa Bros. Fortress": "Eldstar",
+	"Dry Dry Ruins": "Mamar",
+	"Tubba's Castle": "Skolar",
+	"Shy Guy's Toybox": "Muskular",
+	"Mt. Lavalava": "Misstar",
+	"Flower Fields": "Klevar",
+	"Crystal Palace": "Kalmar",
+};
+
 export const usePlaythrough = defineStore("playthrough", {
 	state: () => ({ ...init }),
 	actions: {
@@ -307,6 +317,23 @@ export const usePlaythrough = defineStore("playthrough", {
 				return 0;
 			}
 		},
+		getRegionRequirements(region: string) {
+			if (!Object.getOwnPropertyNames(dungeonRegions).includes(region)) {
+				return getRegionData(region).reqs;
+			}
+			const shuffledEntrance = Object.getOwnPropertyNames(
+				this.spiritAnnotations
+			).find(
+				el => this.spiritAnnotations[el].entrance === dungeonRegions[region]
+			);
+			if (!shuffledEntrance) {
+				return getRegionData(region).reqs;
+			}
+			const shuffledDungeon = Object.getOwnPropertyNames(dungeonRegions).find(
+				r => dungeonRegions[r] === shuffledEntrance
+			);
+			return getRegionData(shuffledDungeon).reqs;
+		},
 		canCheckLocation(reqs: Requirements, region?: string) {
 			const options = useOptions();
 
@@ -321,7 +348,7 @@ export const usePlaythrough = defineStore("playthrough", {
 			) {
 				return false;
 			}
-			const regionReqs = region ? getRegionData(region).reqs : null;
+			const regionReqs = region ? this.getRegionRequirements(region) : null;
 			return (
 				resolveRequirement(regionReqs ?? null, "and") &&
 				resolveRequirement(reqs, "and")
