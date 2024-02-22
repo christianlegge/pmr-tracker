@@ -2573,7 +2573,7 @@ const regionData: MapRegions = {
 				row: 5,
 				col: 3,
 				checks: {
-					"On table": { reqs: null },
+					"On table": { reqs: "Boots" },
 				},
 			},
 			"Spring Room": {
@@ -3817,7 +3817,12 @@ const regionData: MapRegions = {
 				rowSpan: 3,
 				checks: {
 					"? Block": {
-						reqs: [["Red Key", "Blue Key"]],
+						reqs: [
+							[
+								["Red Key", "Super Boots"],
+								["Blue Key", "Bombette"],
+							],
+						],
 					},
 				},
 			},
@@ -3827,7 +3832,7 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					Chest: {
-						reqs: [["Red Key", "Blue Key"]],
+						reqs: [["Red Key", ["Blue Key", "Bombette"]], "Super Boots"],
 					},
 				},
 			},
@@ -3837,7 +3842,12 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					"Item on ledge": {
-						reqs: [["Red Key", "Blue Key"]],
+						reqs: [
+							[
+								["Red Key", "Super Boots"],
+								["Blue Key", "Bombette"],
+							],
+						],
 					},
 				},
 			},
@@ -3847,7 +3857,12 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					Chest: {
-						reqs: [["Red Key", "Blue Key"], "Bombette"],
+						reqs: [
+							["Red Key", ["Blue Key", "Bombette"]],
+							"Super Boots",
+							"Bombette",
+							"Hammer",
+						],
 					},
 				},
 			},
@@ -3857,7 +3872,7 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					Chest: {
-						reqs: null,
+						reqs: logic.canClimbLedges,
 					},
 				},
 			},
@@ -3867,10 +3882,10 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"[Panel] Under block": {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer", "Kooper"],
 					},
 					"? Block": {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer", "Kooper"],
 					},
 				},
 			},
@@ -3880,7 +3895,7 @@ const regionData: MapRegions = {
 				col: 10,
 				checks: {
 					Chest: {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer", "Kooper"],
 					},
 				},
 			},
@@ -3889,7 +3904,12 @@ const regionData: MapRegions = {
 				col: 1,
 				checks: {
 					"Item in cave": {
-						reqs: [["Red Key", "Blue Key"]],
+						reqs: [
+							[
+								["Red Key", "Super Boots"],
+								["Blue Key", "Bombette"],
+							],
+						],
 					},
 				},
 			},
@@ -3900,7 +3920,7 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"[Multicoin Block] 2 Blocks past blue door": {
-						reqs: ["Blue Key", "Bombette"],
+						reqs: ["Blue Key", "Bombette", logic.canBreakBlocksAbove],
 					},
 				},
 			},
@@ -3912,7 +3932,7 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"Chest, blow up right wall in switch room": {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer"],
 					},
 				},
 			},
@@ -3923,7 +3943,7 @@ const regionData: MapRegions = {
 				col: 10,
 				checks: {
 					Chest: {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer", "Kooper"],
 					},
 				},
 			},
@@ -3939,7 +3959,14 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					Kalmar: {
-						reqs: ["Red Key", "Palace Key", "Kooper", "Hammer", "Bombette"],
+						reqs: [
+							"Red Key",
+							"Super Boots",
+							"Palace Key",
+							"Kooper",
+							"Hammer",
+							"Bombette",
+						],
 					},
 				},
 			},
@@ -3950,10 +3977,10 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"[Panel] Under block": {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer", "Kooper"],
 					},
 					"? Block": {
-						reqs: ["Red Key", "Bombette"],
+						reqs: ["Red Key", "Super Boots", "Bombette", "Hammer", "Kooper"],
 					},
 				},
 			},
