@@ -326,7 +326,9 @@ export const usePlaythrough = defineStore("playthrough", {
 			const shuffledEntrance = Object.getOwnPropertyNames(
 				this.spiritAnnotations
 			).find(
-				el => this.spiritAnnotations[el].entrance === dungeonRegions[region]
+				el =>
+					this.spiritAnnotations[el].entrance ===
+					dungeonRegions[region as keyof typeof dungeonRegions]
 			);
 			if (!shuffledEntrance) {
 				return options.options.dungeonShuffle
@@ -334,9 +336,10 @@ export const usePlaythrough = defineStore("playthrough", {
 					: getRegionData(region).reqs;
 			}
 			const shuffledDungeon = Object.getOwnPropertyNames(dungeonRegions).find(
-				r => dungeonRegions[r] === shuffledEntrance
+				r =>
+					dungeonRegions[r as keyof typeof dungeonRegions] === shuffledEntrance
 			);
-			return getRegionData(shuffledDungeon).reqs;
+			return getRegionData(shuffledDungeon!).reqs;
 		},
 		canGetSkolar() {
 			const canReachGulch = resolveRequirement(

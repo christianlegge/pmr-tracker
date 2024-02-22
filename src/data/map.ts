@@ -4482,8 +4482,8 @@ export const kootReqs = Object.values(regionData)
 	);
 
 export const getRewardReqs = (reward: string) => {
-	const region = chapterRewards[reward].region;
-	const area = chapterRewards[reward].area;
+	const region = chapterRewards[reward as keyof typeof chapterRewards].region;
+	const area = chapterRewards[reward as keyof typeof chapterRewards].area;
 	return regionData[region].areas[area].checks[reward].reqs;
 };
 export const allRegions = Object.getOwnPropertyNames(regionData);
