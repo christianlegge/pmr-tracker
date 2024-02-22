@@ -57,6 +57,7 @@ export type Options = {
 	startingLocation: string;
 	fastBowserCastle: boolean;
 	limitChapterLogic: boolean;
+	dungeonShuffle: boolean;
 	startingBoots: string;
 	startingHammer: string;
 	shopsRandomized: boolean;
@@ -251,6 +252,12 @@ export const optionsData = {
 	fastBowserCastle: {
 		namespace: "settings",
 		name: "Fast Bowser's Castle",
+		type: "boolean",
+		default: false,
+	},
+	dungeonShuffle: {
+		namespace: "settings",
+		name: "Dungeon Shuffle",
 		type: "boolean",
 		default: false,
 	},
