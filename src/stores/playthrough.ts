@@ -334,6 +334,22 @@ export const usePlaythrough = defineStore("playthrough", {
 			);
 			return getRegionData(shuffledDungeon).reqs;
 		},
+		canGetSkolar() {
+			const canReachGulch = resolveRequirement(
+				this.getRegionRequirements("Gusty Gulch")!,
+				"and"
+			);
+			const canReachCastle = resolveRequirement(
+				this.getRegionRequirements("Tubba's Castle")!,
+				"and"
+			);
+			return (
+				canReachGulch &&
+				canReachCastle &&
+				this.items.includes("Super Boots") &&
+				this.items.filter(el => el === "Tubba Castle Key").length >= 3
+			);
+		},
 		canCheckLocation(reqs: Requirements, region?: string) {
 			const options = useOptions();
 

@@ -62,7 +62,11 @@ const itemCounts = computed(() =>
 									has: ca.has + 1,
 									total: ca.total + 1,
 								};
-							} else if (playthrough.canCheckLocation(cv.reqs, v)) {
+							} else if (
+								ck === "Skolar"
+									? playthrough.canGetSkolar()
+									: playthrough.canCheckLocation(cv.reqs, v)
+							) {
 								return {
 									...ca,
 									available: ca.available + 1,
@@ -203,7 +207,10 @@ const checksToShow = computed(() =>
 					v-for="[checkName, check] in checksToShow"
 					:key="checkName"
 					:class="{
-						available: playthrough.canCheckLocation(check.reqs, currentRegion),
+						available:
+							checkName === 'Skolar'
+								? playthrough.canGetSkolar()
+								: playthrough.canCheckLocation(check.reqs, currentRegion),
 						obtained: playthrough.checkedLocation(currentArea, checkName),
 						disabled: unshuffledChecks.includes(checkName),
 					}"

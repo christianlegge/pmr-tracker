@@ -2,11 +2,11 @@
 import { usePlaythrough } from "@/stores/playthrough";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
-import { chapterRewardReqs } from "@/data/map";
+import { chapterRewards, getRewardReqs } from "@/data/map";
 import type { TrackableItemInfo } from "@/types/items";
 import { useOptions } from "../stores/config";
 import type { PlaythroughProps } from "../stores/playthrough";
-import { kootReqs } from "../data/map";
+import { kootReqs, getRegionData } from "../data/map";
 import { getImageUrl } from "@/utils/helpers";
 import {
 	useFloating,
@@ -120,11 +120,14 @@ const shouldGlow = computed(() => {
 			info.chapter &&
 			1 <= info.chapter &&
 			info.chapter <= 8) ||
-			(name in chapterRewardReqs &&
+			(name in chapterRewards &&
 				options.value.trackerLogic &&
-				playthroughStore.canCheckLocation(
-					chapterRewardReqs[name as keyof typeof chapterRewardReqs]
-				)) ||
+				(name === "Skolar"
+					? playthroughStore.canGetSkolar()
+					: playthroughStore.canCheckLocation(
+							getRewardReqs(name),
+							chapterRewards[name as keyof typeof chapterRewards].region
+						))) ||
 			(info.type === "kootFavor" &&
 				info.turnInCheck &&
 				playthroughStore.chaptersBeaten() >=
@@ -173,7 +176,7 @@ const shouldGlow = computed(() => {
 			"
 			@contextmenu.prevent="
 				() => {
-					if (name in chapterRewardReqs) {
+					if (name in chapterRewards) {
 						// playthroughStore.incrementSpiritAnnotation(
 						// 	name as keyof PlaythroughProps['spiritAnnotations']
 						// );
@@ -202,7 +205,7 @@ const shouldGlow = computed(() => {
 			<svg
 				v-if="
 					options.limitChapterLogic &&
-					name in chapterRewardReqs &&
+					name in chapterRewards &&
 					!playthroughStore.getSpiritAnnotation(name).required
 				"
 				xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +225,7 @@ const shouldGlow = computed(() => {
 			<p
 				v-if="
 					(label && options.colorblind) ||
-					(name in chapterRewardReqs &&
+					(name in chapterRewards &&
 						playthroughStore.getSpiritAnnotation(
 							name as keyof PlaythroughProps['spiritAnnotations']
 						).scaling > 0)
@@ -251,7 +254,7 @@ const shouldGlow = computed(() => {
 			</div>
 			<div
 				v-if="
-					name in chapterRewardReqs &&
+					name in chapterRewards &&
 					playthroughStore.getSpiritAnnotation(
 						name as keyof PlaythroughProps['spiritAnnotations']
 					).entrance
@@ -346,7 +349,7 @@ const shouldGlow = computed(() => {
 				class="scaling"
 				@click.prevent="
 					playthroughStore.setSpiritAnnotation(
-						name as keyof typeof chapterRewardReqs,
+						name as keyof typeof chapterRewards,
 						{ scaling: num }
 					);
 					showStarTooltip = false;
@@ -377,14 +380,14 @@ const shouldGlow = computed(() => {
 			<h3>Dungeon Entrances</h3>
 			<button
 				v-for="star in [
-					...Object.getOwnPropertyNames(chapterRewardReqs).slice(0, 7),
+					...Object.getOwnPropertyNames(chapterRewards).slice(0, 7),
 					'',
 				]"
 				:key="star"
 				class="entrance"
 				@click="
 					playthroughStore.setSpiritAnnotation(
-						name as keyof typeof chapterRewardReqs,
+						name as keyof typeof chapterRewards,
 						{ entrance: star }
 					);
 					showStarTooltip = false;
@@ -427,14 +430,14 @@ const shouldGlow = computed(() => {
 				}"
 				@click="
 					playthroughStore.toggleSpiritRequired(
-						name as keyof typeof chapterRewardReqs
+						name as keyof typeof chapterRewards
 					);
 					showStarTooltip = false;
 				"
 			>
 				{{
 					playthroughStore.getSpiritAnnotation(
-						name as keyof typeof chapterRewardReqs
+						name as keyof typeof chapterRewards
 					).required
 						? "Mark as Not Required"
 						: "Mark as Required"

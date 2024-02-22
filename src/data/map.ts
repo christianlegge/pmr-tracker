@@ -36,97 +36,16 @@ type Region = {
 
 type MapRegions = { [key: string]: Region };
 
-export const chapterRewardReqs = {
-	Eldstar: [
-		logic.canReachToadTown,
-		logic.canClimbLedges,
-		["Hammer", "Bombette"],
-		"Kooper",
-		logic.multipleItemCheck("Fortress Key", 4),
-	],
-	Mamar: [
-		"Pulse Stone",
-		"Pyramid Stone",
-		"Diamond Stone",
-		"Lunar Stone",
-		logic.multipleItemCheck("Ruins Key", 3),
-		[
-			logic.startingLocation("Dry Dry Outpost"),
-			["Bombette", "Parakarry"],
-			"Super Hammer",
-		],
-	],
-	Skolar: [
-		logic.canReachToadTown,
-		"Boo's Portrait",
-		logic.multipleItemCheck("Tubba Castle Key", 3),
-		"Parakarry",
-		"Super Boots",
-	],
-	Muskular: [
-		"Toy Train",
-		"Cake",
-		"Bombette",
-		"Watt",
-		"Hammer",
-		logic.toyboxAccess,
-	],
-	Misstar: [
-		"Jade Raven",
-		"Sushie",
-		"Hammer",
-		logic.canClimbLedges,
-		[
-			logic.startingLocation("Yoshi Village"),
-			"Watt",
-			logic.whaleOpen,
-			["Bombette", [logic.blueHouseOpen, "Odd Key"]],
-			["Super Boots", "Sushie"],
-		],
-		logic.canBreakVolcanoBlocks,
-	],
-	Klevar: [
-		logic.canReachToadTown,
-		logic.chapter6Entry,
-		"Magical Bean",
-		"Fertile Soil",
-		"Miracle Water",
-		"Lakilester",
-		"Super Boots",
-		"Hammer",
-	],
-	Kalmar: [
-		"Warehouse Key",
-		"Bucket",
-		"Scarf",
-		"Star Stone",
-		"Red Key",
-		"Palace Key",
-		"Kooper",
-		"Hammer",
-		"Bombette",
-		logic.canReachToadTown,
-		[["Super Boots", logic.shiverBridgeVisible], "Ultra Boots"],
-		["Sushie", logic.blueHouseOpen, "Odd Key"],
-	],
-	"Star Rod": [
-		logic.canReachToadTown,
-		"Boots",
-		7,
-		[
-			[
-				logic.multipleItemCheck("Bowser's Castle Key", 5),
-				"Bombette",
-				"Lakilester",
-				"Parakarry",
-				"Bow",
-				"Sushie",
-				"Ultra Boots",
-			],
-			logic.fastBowserCastle,
-		],
-	],
-} satisfies Record<string, Requirements>;
+export const chapterRewards = {
+	Eldstar: { region: "Koopa Bros. Fortress", area: "Boss Room" },
+	Mamar: { region: "Dry Dry Ruins", area: "Boss Room" },
+	Skolar: { region: "Gusty Gulch", area: "Windmill" },
+	Muskular: { region: "Shy Guy's Toybox", area: "General Guy" },
+	Misstar: { region: "Mt. Lavalava", area: "Lava Piranha" },
+	Klevar: { region: "Flower Fields", area: "Huff n Puff" },
+	Kalmar: { region: "Crystal Palace", area: "Albino Dinos + Crystal King" },
+	"Star Rod": { region: "Peach's Castle", area: "Final Bowser" },
+} satisfies Record<string, { region: string; area: string }>;
 
 const regionData: MapRegions = {
 	Prologue: {
@@ -2507,7 +2426,7 @@ const regionData: MapRegions = {
 				col: 2,
 				checks: {
 					Skolar: {
-						reqs: chapterRewardReqs.Skolar,
+						reqs: false,
 					},
 				},
 			},
@@ -4432,7 +4351,23 @@ const regionData: MapRegions = {
 		},
 	},
 	"Peach's Castle": {
-		reqs: chapterRewardReqs["Star Rod"],
+		reqs: [
+			logic.canReachToadTown,
+			"Boots",
+			7,
+			[
+				[
+					logic.multipleItemCheck("Bowser's Castle Key", 5),
+					"Bombette",
+					"Lakilester",
+					"Parakarry",
+					"Bow",
+					"Sushie",
+					"Ultra Boots",
+				],
+				logic.fastBowserCastle,
+			],
+		],
 		areas: {
 			"Final Bowser": {
 				row: 1,
@@ -4546,6 +4481,11 @@ export const kootReqs = Object.values(regionData)
 		{} as Record<string, Requirements>
 	);
 
+export const getRewardReqs = (reward: string) => {
+	const region = chapterRewards[reward].region;
+	const area = chapterRewards[reward].area;
+	return regionData[region].areas[area].checks[reward].reqs;
+};
 export const allRegions = Object.getOwnPropertyNames(regionData);
 export const getRegionData = (region: string) => regionData[region];
 export const getChecks = (region: string, area: string) =>
