@@ -2871,7 +2871,7 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					Muskular: {
-						reqs: ["Toy Train", "Cake", "Bombette", "Watt", "Hammer"],
+						reqs: [logic.canMoveStations, "Cake", "Bombette", "Watt", "Hammer"],
 					},
 				},
 			},
