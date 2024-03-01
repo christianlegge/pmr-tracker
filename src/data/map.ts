@@ -524,10 +524,10 @@ const regionData: MapRegions = {
 				col: 8,
 				checks: {
 					"Hidden block next to last brick block": {
-						reqs: ["Hammer", logic.canBreakBlocksAbove],
+						reqs: [["Hammer", "Bombette"], logic.canBreakBlocksAbove],
 					},
 					"[Multicoin Block] Third block from the left": {
-						reqs: ["Hammer", logic.canBreakBlocksAbove],
+						reqs: [["Hammer", "Bombette"], logic.canBreakBlocksAbove],
 					},
 				},
 			},
@@ -536,7 +536,7 @@ const regionData: MapRegions = {
 				col: 9,
 				checks: {
 					Chest: {
-						reqs: ["Hammer"],
+						reqs: [["Hammer", "Bombette"]],
 					},
 				},
 			},
