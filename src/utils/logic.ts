@@ -15,8 +15,7 @@ export function canReachToadTown({
 			(items.includes("Boots") || items.includes("Parakarry"))) ||
 		(settings.startingLocation === "Dry Dry Outpost" &&
 			items.includes("Boots")) ||
-		(settings.startingLocation === "Yoshi Village" &&
-			(items.includes("Watt") || settings.whaleOpen))
+		settings.startingLocation === "Yoshi Village"
 	);
 }
 export function canClimbLedges({
