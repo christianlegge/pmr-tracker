@@ -3160,7 +3160,7 @@ const regionData: MapRegions = {
 				colSpan: 2,
 				checks: {
 					"[Shop] 6 items in Shop": {
-						reqs: null,
+						reqs: logic.canClimbLedges,
 					},
 					"[Letter] Red Yoshi Kid (Chain)": {
 						reqs: ["Red Yoshi Kid", "Parakarry"],
