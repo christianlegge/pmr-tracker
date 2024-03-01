@@ -3091,7 +3091,7 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					Sushie: {
-						reqs: "Hammer",
+						reqs: logic.canShakeTree,
 					},
 					"Item on top right island": {
 						reqs: "Sushie",
