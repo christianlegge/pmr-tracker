@@ -1919,8 +1919,8 @@ const regionData: MapRegions = {
 					"Item on ledge (take Tweester in room down left from here)": {
 						reqs: null,
 					},
-					"Item on brick block, requires Kooper or Ultra Boots": {
-						reqs: [[["Kooper", logic.canClimbLedges], "Ultra Boots"]],
+					"Item on brick block, requires Kooper or Super Boots": {
+						reqs: [[["Kooper", logic.canClimbLedges], "Super Boots"]],
 					},
 				},
 			},
