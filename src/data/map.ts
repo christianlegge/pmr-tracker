@@ -929,6 +929,9 @@ const regionData: MapRegions = {
 					"Item in first tree": {
 						reqs: [logic.canShakeTree, logic.canClimbLedges, "Kooper"],
 					},
+					"Inside chest on ledge from bombable wall": {
+						reqs: ["Bombette", logic.canClimbLedges],
+					},
 				},
 			},
 		},
@@ -1461,11 +1464,7 @@ const regionData: MapRegions = {
 			"Outside Fortress": {
 				row: 3,
 				col: 1,
-				checks: {
-					"Inside chest on ledge from bombable wall on previous screen": {
-						reqs: "Bombette",
-					},
-				},
+				checks: {},
 			},
 			"Outside Chest": {
 				row: 3,
