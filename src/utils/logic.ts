@@ -276,7 +276,6 @@ export function showMagicalSeed(num: number) {
 }
 export function canAscendSummit({
 	items,
-	checks,
 	settings,
 }: {
 	items: string[];
