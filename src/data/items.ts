@@ -474,6 +474,7 @@ export const allItems: TrackableItemInfo[] = [
 		image: "icons/OddKey.gif",
 		label: "P",
 		multiple: 2,
+		show: (settings: Options) => !settings.fastBowserCastle,
 	},
 	{
 		name: "Lyrics",
