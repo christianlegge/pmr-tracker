@@ -152,12 +152,19 @@ export function toyboxAccess({
 }
 export function canMoveStations({
 	items,
+	checks,
+	settings,
 }: {
 	items: string[];
 	checks: string[];
 	settings: Options;
 }) {
-	return items.includes("Toy Train") && items.includes("Boots");
+	return (
+		items.includes("Toy Train") &&
+		items.includes("Boots") &&
+		canReachToadTown({ items, checks, settings }) &&
+		items.includes("Bow")
+	);
 }
 export function goombaVillageAccess({
 	items,
