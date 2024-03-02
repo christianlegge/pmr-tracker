@@ -3058,7 +3058,7 @@ const regionData: MapRegions = {
 						reqs: "Sushie",
 					},
 					"[Foliage Coin] Bottom bush on left side": {
-						reqs: "Sushie",
+						reqs: [[logic.canClimbLedges, "Sushie"]],
 					},
 					"[Upgrade] Super Block": {
 						reqs: ["Sushie", logic.canBreakBlocksAbove],
