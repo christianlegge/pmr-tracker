@@ -821,16 +821,15 @@ const regionData: MapRegions = {
 				row: 3,
 				col: 10,
 				checks: {
-					"All items from Rip Cheato - 11 total, only first 6 (28 coins) can be progression":
-						{
-							reqs: [
-								[
-									"Odd Key",
-									logic.blueHouseOpen,
-									["Super Boots", "Sushie", "Bombette"],
-								],
+					"All items from Rip Cheato - 11 total": {
+						reqs: [
+							[
+								"Odd Key",
+								logic.blueHouseOpen,
+								["Super Boots", "Sushie", "Bombette"],
 							],
-						},
+						],
+					},
 				},
 			},
 		},
