@@ -53,7 +53,7 @@ const { floatingStyles, middlewareData, placement } = useFloating(
 );
 
 const powerStarNum = computed(() =>
-	name === "Power Stars Found" ? options.value.powerStarNum : null
+	name === "Power Star" ? options.value.powerStarNum : null
 );
 
 const bootsOrHammer = computed(() => name === "Boots" || name === "Hammer");

@@ -47,7 +47,7 @@ export const allItems: TrackableItemInfo[] = [
 	},
 	{
 		chapter: 8,
-		name: "Power Stars Found",
+		name: "Power Star",
 		type: "chapterReward",
 		image: "icons/Power_Star.png",
 		show: logic.powerStarHunt,

@@ -379,7 +379,7 @@ export const optionsData = {
 	},
 	powerStarNum: {
 		namespace: "settings",
-		name: "Power Star Hunt Num",
+		name: "Power Stars Required",
 		type: "number",
 		default: 120,
 		range: [0, 120],

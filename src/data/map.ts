@@ -3989,7 +3989,7 @@ const regionData: MapRegions = {
 		},
 	},
 	"Bowser's Castle": {
-		reqs: [logic.canReachToadTown, "Boots", 7],
+		reqs: [logic.canReachToadTown, "Boots", logic.canAscendSummit],
 		areas: {
 			"Bombette Switch Room": {
 				row: 2,
@@ -4382,7 +4382,7 @@ const regionData: MapRegions = {
 		reqs: [
 			logic.canReachToadTown,
 			"Boots",
-			7,
+			logic.canAscendSummit,
 			[
 				[
 					logic.multipleItemCheck("Bowser's Castle Key", 5),

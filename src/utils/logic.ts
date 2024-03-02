@@ -274,3 +274,32 @@ export function powerStarNum(settings: Options) {
 export function showMagicalSeed(num: number) {
 	return (settings: Options) => settings.seedsRequired >= num;
 }
+export function canAscendSummit({
+	items,
+	checks,
+	settings,
+}: {
+	items: string[];
+	checks: string[];
+	settings: Options;
+}) {
+	if (settings.powerStarHunt) {
+		return (
+			items.filter(el => el === "Power Star").length >= settings.powerStarNum
+		);
+	} else {
+		return (
+			items.filter(el =>
+				[
+					"Eldstar",
+					"Mamar",
+					"Skolar",
+					"Muskular",
+					"Misstar",
+					"Klevar",
+					"Kalmar",
+				].includes(el)
+			).length >= 7
+		);
+	}
+}
