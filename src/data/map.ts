@@ -2440,7 +2440,7 @@ const regionData: MapRegions = {
 							reqs: [
 								logic.canReachToadTown,
 								"Hammer",
-								5,
+								6,
 								"Koopa Legends",
 								"Sleepy Sheep",
 								"Tape",
