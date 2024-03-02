@@ -2194,7 +2194,7 @@ const regionData: MapRegions = {
 			"HP Plus": {
 				row: 1,
 				col: 5,
-				checks: { "? Block": { reqs: null } },
+				checks: { "? Block": { reqs: logic.canBreakBlocksAbove } },
 			},
 			"Oaklie Room": { row: 1, col: 7, checks: {} },
 			"Forest Room 2": { row: 1, col: 9, checks: {} },
@@ -2208,7 +2208,7 @@ const regionData: MapRegions = {
 			"FP Plus": {
 				row: 5,
 				col: 1,
-				checks: { "? Block": { reqs: null } },
+				checks: { "? Block": { reqs: logic.canBreakBlocksAbove } },
 			},
 			"Forest Room 7": { row: 5, col: 3, checks: {} },
 			"Forest Room 6": { row: 5, col: 5, checks: {} },
