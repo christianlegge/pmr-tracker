@@ -3115,7 +3115,7 @@ const regionData: MapRegions = {
 					"Coconut tree 2": {
 						reqs: logic.canShakeTree,
 					},
-					"Hidden block by bell plant": {
+					"Hidden block by left bell plant": {
 						reqs: logic.canBreakBlocksAbove,
 					},
 					"Coconut tree 3": {
@@ -3126,6 +3126,9 @@ const regionData: MapRegions = {
 					},
 					"Coconut tree 4": {
 						reqs: logic.canShakeTree,
+					},
+					"Hidden block by right bell plant": {
+						reqs: logic.canBreakBlocksAbove,
 					},
 					"Coconut tree 5": {
 						reqs: logic.canShakeTree,
