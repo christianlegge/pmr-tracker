@@ -1479,7 +1479,7 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"Item at end of room": {
-						reqs: ["Bombette", "Fortress Key"],
+						reqs: logic.multipleItemCheck("Fortress Key", 2),
 					},
 				},
 			},
