@@ -1419,7 +1419,10 @@ const regionData: MapRegions = {
 						reqs: null,
 					},
 					"Top of room guarded by Bob-omb": {
-						reqs: logic.multipleItemCheck("Fortress Key", 4),
+						reqs: [
+							["Kooper", "Parakarry"],
+							logic.multipleItemCheck("Fortress Key", 4),
+						],
 					},
 				},
 			},
@@ -1428,7 +1431,11 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"? Block behind bombable rock": {
-						reqs: ["Bombette", logic.multipleItemCheck("Fortress Key", 4)],
+						reqs: [
+							"Bombette",
+							["Kooper", "Parakarry"],
+							logic.multipleItemCheck("Fortress Key", 4),
+						],
 					},
 				},
 			},
@@ -1437,7 +1444,10 @@ const regionData: MapRegions = {
 				col: 4,
 				checks: {
 					Eldstar: {
-						reqs: logic.multipleItemCheck("Fortress Key", 4),
+						reqs: [
+							["Kooper", "Parakarry"],
+							logic.multipleItemCheck("Fortress Key", 4),
+						],
 					},
 				},
 			},
@@ -1448,7 +1458,11 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"Left Jail Cell": {
-						reqs: ["Bombette", logic.multipleItemCheck("Fortress Key", 3)],
+						reqs: [
+							"Bombette",
+							["Kooper", "Parakarry"],
+							logic.multipleItemCheck("Fortress Key", 3),
+						],
 					},
 					"Middle Jail Cell": {
 						reqs: ["Bombette", "Fortress Key"],
@@ -1489,12 +1503,7 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					Bombette: {
-						reqs: [
-							[
-								["Fortress Key", "Bombette"],
-								logic.multipleItemCheck("Fortress Key", 2),
-							],
-						],
+						reqs: logic.multipleItemCheck("Fortress Key", 2),
 					},
 				},
 			},
