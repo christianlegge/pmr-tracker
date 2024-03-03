@@ -3391,8 +3391,8 @@ const regionData: MapRegions = {
 				row: 2,
 				col: 5,
 				checks: {
-					"Item in second vine (jump to trigger it)": {
-						reqs: "Boots",
+					"Item in second vine (jump or use Parakarry to trigger it)": {
+						reqs: logic.canClimbLedges,
 					},
 					"Item from ground pounding opposite side from partner upgrade block":
 						{
