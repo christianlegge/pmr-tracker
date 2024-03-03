@@ -2526,7 +2526,10 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"Item at end of hall": {
-						reqs: logic.multipleItemCheck("Tubba Castle Key", 2),
+						reqs: [
+							logic.canClimbLedges,
+							logic.multipleItemCheck("Tubba Castle Key", 2),
+						],
 					},
 				},
 			},
@@ -2534,7 +2537,9 @@ const regionData: MapRegions = {
 				row: 6,
 				col: 1,
 				rowSpan: 2,
-				checks: { "[Upgrade] Super Block": { reqs: null } },
+				checks: {
+					"[Upgrade] Super Block": { reqs: logic.canBreakBlocksAbove },
+				},
 			},
 			"Stairwell 3": {
 				row: 2,
@@ -2542,7 +2547,10 @@ const regionData: MapRegions = {
 				rowSpan: 3,
 				checks: {
 					"? Block at bottom of staircase": {
-						reqs: logic.multipleItemCheck("Tubba Castle Key", 2),
+						reqs: [
+							logic.canBreakBlocksAbove,
+							logic.multipleItemCheck("Tubba Castle Key", 2),
+						],
 					},
 				},
 			},
@@ -2555,10 +2563,10 @@ const regionData: MapRegions = {
 				col: 2,
 				checks: {
 					"[Coinsanity] 6 items on bed": {
-						reqs: "Tubba Castle Key",
+						reqs: ["Parakarry", "Tubba Castle Key"],
 					},
 					"Behind wall on shelf at left side of room": {
-						reqs: "Tubba Castle Key",
+						reqs: ["Parakarry", "Tubba Castle Key"],
 					},
 				},
 			},
@@ -2588,7 +2596,7 @@ const regionData: MapRegions = {
 				col: 4,
 				checks: {
 					"On left side, break panels in room above behind bombable wall": {
-						reqs: ["Tubba Castle Key", "Bombette", "Super Boots"],
+						reqs: ["Tubba Castle Key", "Bombette", "Parakarry", "Super Boots"],
 					},
 				},
 			},
