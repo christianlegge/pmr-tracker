@@ -64,7 +64,7 @@ const regionData: MapRegions = {
 					"[Foliage Coin] 2 more trees": {
 						reqs: [["Hammer", "Bombette"], logic.goombaVillageAccess],
 					},
-					"[Foliage Coin] 6 more bushes": {
+					"[Foliage Coin] 5 more bushes (6 items)": {
 						reqs: [["Hammer", "Bombette"], logic.goombaVillageAccess],
 					},
 					"[Multicoin Block] Block on ground": {
