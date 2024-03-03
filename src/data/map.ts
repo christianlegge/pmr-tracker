@@ -3234,22 +3234,37 @@ const regionData: MapRegions = {
 				rowSpan: 3,
 				checks: {
 					"[Coin Block] ? Block 1": {
-						reqs: logic.canBreakBlocksAbove,
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+						],
 					},
 					"[Coin Block] ? Block 2": {
-						reqs: logic.canBreakBlocksAbove,
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+						],
 					},
 					"[Coin Block] ? Block 3": {
-						reqs: logic.canBreakBlocksAbove,
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+						],
 					},
 					"[Coin Block] ? Block 4": {
-						reqs: logic.canBreakBlocksAbove,
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+						],
 					},
 					"Item on top of brick block": {
-						reqs: [["Ultra Boots", ["Boots", "Kooper"]]],
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							["Ultra Boots", [logic.canClimbLedges, "Kooper"]],
+						],
 					},
 					"Item on platform halfway down second zip line": {
-						reqs: "Boots",
+						reqs: [[logic.canClimbLedges, "Lakilester"]],
 					},
 				},
 			},
@@ -3258,7 +3273,10 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					"[Upgrade] Super Block": {
-						reqs: "Boots",
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+						],
 					},
 				},
 			},
@@ -3268,10 +3286,14 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"[Panel] Right side of lower level": {
-						reqs: logic.canFlipPanel,
+						reqs: [[logic.canClimbLedges, "Lakilester"], logic.canFlipPanel],
 					},
 					"[Upgrade] Super Block": {
-						reqs: ["Boots", logic.canBreakVolcanoBlocks],
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+							logic.canBreakVolcanoBlocks,
+						],
 					},
 				},
 			},
@@ -3284,7 +3306,11 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"[Panel] Left of heart block": {
-						reqs: [logic.canBreakVolcanoBlocks, "Boots", logic.canFlipPanel],
+						reqs: [
+							logic.canBreakVolcanoBlocks,
+							logic.canClimbLedges,
+							logic.canFlipPanel,
+						],
 					},
 				},
 			},
@@ -3293,10 +3319,18 @@ const regionData: MapRegions = {
 				col: 10,
 				checks: {
 					"Left ? Block": {
-						reqs: [logic.canBreakVolcanoBlocks, "Boots"],
+						reqs: [
+							logic.canBreakVolcanoBlocks,
+							logic.canClimbLedges,
+							logic.canBreakBlocksAbove,
+						],
 					},
 					"Right ? Block": {
-						reqs: [logic.canBreakVolcanoBlocks, "Boots"],
+						reqs: [
+							logic.canBreakVolcanoBlocks,
+							logic.canClimbLedges,
+							logic.canBreakBlocksAbove,
+						],
 					},
 				},
 			},
@@ -3305,7 +3339,7 @@ const regionData: MapRegions = {
 				col: 1,
 				checks: {
 					"Ultra Hammer chest": {
-						reqs: [["Parakarry", "Lakilester"]],
+						reqs: [logic.canClimbLedges, ["Parakarry", "Lakilester"]],
 					},
 				},
 			},
@@ -3315,7 +3349,10 @@ const regionData: MapRegions = {
 				rowSpan: 2,
 				checks: {
 					"Hidden block on right side of room": {
-						reqs: logic.canBreakBlocksAbove,
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakBlocksAbove,
+						],
 					},
 				},
 			},
@@ -3325,7 +3362,11 @@ const regionData: MapRegions = {
 				col: 10,
 				checks: {
 					Misstar: {
-						reqs: [logic.canBreakVolcanoBlocks, "Boots"],
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakVolcanoBlocks,
+							logic.canClimbLedges,
+						],
 					},
 				},
 			},
@@ -3334,7 +3375,11 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					Chest: {
-						reqs: [logic.canBreakVolcanoBlocks, ["Parakarry", "Lakilester"]],
+						reqs: [
+							[logic.canClimbLedges, "Lakilester"],
+							logic.canBreakVolcanoBlocks,
+							["Parakarry", "Lakilester"],
+						],
 					},
 				},
 			},
