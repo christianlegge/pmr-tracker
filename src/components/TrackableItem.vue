@@ -2,7 +2,7 @@
 import { usePlaythrough } from "@/stores/playthrough";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
-import { chapterRewards, getRewardReqs } from "@/data/map";
+import { chapterRewards, getRegionData, getRewardReqs } from "@/data/map";
 import type { TrackableItemInfo } from "@/types/items";
 import { useOptions } from "../stores/config";
 import type { PlaythroughProps } from "../stores/playthrough";
@@ -134,6 +134,18 @@ const shouldGlow = computed(() => {
 					playthroughStore.getRequiredChapters(
 						kootReqs[info.turnInCheck.split(":")[1]]
 					)))
+	);
+});
+
+const canCheckEntrance = computed(() => {
+	return (
+		options.value.dungeonShuffle &&
+		name in chapterRewards &&
+		options.value.trackerLogic &&
+		playthroughStore.canCheckLocation(
+			getRegionData(chapterRewards[name as keyof typeof chapterRewards].region)
+				.reqs!
+		)
 	);
 });
 </script>
@@ -286,6 +298,31 @@ const shouldGlow = computed(() => {
 					"
 					alt=""
 				/>
+			</div>
+			<div
+				v-if="
+					name in chapterRewards &&
+					!playthroughStore.getSpiritAnnotation(
+						name as keyof PlaythroughProps['spiritAnnotations']
+					).entrance &&
+					canCheckEntrance
+				"
+				class="small-annotation entrance-annotation text-glow"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+					class="w-5 h-5"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+						clip-rule="evenodd"
+					/>
+				</svg>
+
+				<span class="annotation-question-mark">?</span>
 			</div>
 			<p v-if="powerStarNum || multiple" class="count">
 				{{
@@ -530,6 +567,17 @@ div.entrance-annotation {
 	width: 70%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+}
+
+span.annotation-question-mark {
+	font-size: 2rem;
+	font-weight: 900;
+	font-family: "Arial Black", Gadget, sans-serif;
+	stroke: 3px black;
+	-webkit-text-stroke: 3px black;
+	text-shadow:
+		white 0px 0px 8px,
+		white 0px 0px 8px;
 }
 
 div.upgrades {
