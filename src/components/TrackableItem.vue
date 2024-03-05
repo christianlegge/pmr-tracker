@@ -302,6 +302,7 @@ const canCheckEntrance = computed(() => {
 			<div
 				v-if="
 					name in chapterRewards &&
+					name !== 'Star Rod' &&
 					!playthroughStore.getSpiritAnnotation(
 						name as keyof PlaythroughProps['spiritAnnotations']
 					).entrance &&
