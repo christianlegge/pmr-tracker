@@ -929,7 +929,7 @@ const regionData: MapRegions = {
 						reqs: [logic.canShakeTree, logic.canClimbLedges, "Kooper"],
 					},
 					"Inside chest on ledge from bombable wall": {
-						reqs: ["Bombette", logic.canClimbLedges],
+						reqs: ["Bombette", logic.canClimbLedges, "Kooper"],
 					},
 				},
 			},
@@ -1393,7 +1393,7 @@ const regionData: MapRegions = {
 						],
 					},
 					"Item on top of brick block on right (after defeating fuzzies)": {
-						reqs: logic.canBreakBlocksAbove,
+						reqs: ["Hammer", logic.canBreakBlocksAbove],
 					},
 					"[Foliage Coin] Far right bush": {
 						reqs: null,
