@@ -2896,7 +2896,10 @@ const regionData: MapRegions = {
 		reqs: [
 			[
 				logic.startingLocation("Yoshi Village"),
-				[logic.canReachToadTown, ["Watt", logic.whaleOpen]],
+				[
+					logic.canReachToadTown,
+					[["Watt", ["Hammer", "Super Boots"]], logic.whaleOpen],
+				],
 				[
 					logic.canReachToadTown,
 					"Boots",
