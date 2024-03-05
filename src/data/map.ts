@@ -2898,7 +2898,7 @@ const regionData: MapRegions = {
 				logic.startingLocation("Yoshi Village"),
 				[
 					logic.canReachToadTown,
-					[["Watt", ["Hammer", "Super Boots"]], logic.whaleOpen],
+					[["Watt", ["Hammer", "Bombette", "Super Boots"]], logic.whaleOpen],
 				],
 				[
 					logic.canReachToadTown,
