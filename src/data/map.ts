@@ -1493,7 +1493,7 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"Item at end of room": {
-						reqs: logic.multipleItemCheck("Fortress Key", 2),
+						reqs: "Fortress Key",
 					},
 				},
 			},
@@ -1503,7 +1503,7 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					Bombette: {
-						reqs: logic.multipleItemCheck("Fortress Key", 2),
+						reqs: "Fortress Key",
 					},
 				},
 			},
