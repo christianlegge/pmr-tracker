@@ -69,6 +69,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 				]
 			: "Hammerless"
 	);
+	optionsStore.setValue("overworldPartners", data.PartnersAlwaysUsable);
 	optionsStore.setValue(
 		"startingLocation",
 		{

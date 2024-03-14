@@ -26,6 +26,17 @@ const starSpirits = [
 	"Kalmar",
 ];
 
+const partners = [
+	"Goombario",
+	"Kooper",
+	"Bombette",
+	"Parakarry",
+	"Bow",
+	"Watt",
+	"Sushie",
+	"Lakilester",
+];
+
 const regionsPerChapter: Record<string, string> = {
 	"Pleasant Path": "Eldstar",
 	"Koopa Village": "Eldstar",
@@ -468,7 +479,11 @@ const resolveRequirement = (
 	} else if (typeof reqs === "boolean") {
 		return reqs;
 	} else if (typeof reqs === "string") {
-		return playthrough.hasItem(reqs);
+		if (partners.includes(reqs) && options.$state.options.overworldPartners) {
+			return true;
+		} else {
+			return playthrough.hasItem(reqs);
+		}
 	} else if (typeof reqs === "number") {
 		return (
 			playthrough.filterItems([

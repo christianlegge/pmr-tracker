@@ -60,6 +60,7 @@ export type Options = {
 	dungeonShuffle: boolean;
 	startingBoots: string;
 	startingHammer: string;
+	overworldPartners: boolean;
 	shopsRandomized: boolean;
 	rowfRandomized: boolean;
 	merlowRandomized: boolean;
@@ -280,6 +281,12 @@ export const optionsData = {
 		type: "select",
 		default: "Hammer",
 		choices: ["Hammerless", "Hammer", "Super Hammer", "Ultra Hammer"],
+	},
+	overworldPartners: {
+		namespace: "settings",
+		name: "Partners Always Usable",
+		type: "boolean",
+		default: false,
 	},
 	shopsRandomized: {
 		namespace: "settings",
