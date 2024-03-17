@@ -680,26 +680,6 @@ if (!localStorage.getItem("visited")) {
 			</GridItem>
 		</GridLayout>
 	</main>
-
-	<footer>
-		<a href="https://twitter.com/Phantom5800" target="_blank"
-			><img :width="15" :src="getImageUrl('TwitterLogo.png')" /> @Phantom5800</a
-		>
-		&bull;
-		<a href="https://www.twitch.tv/phantom5800" target="_blank"
-			><img :width="15" :src="getImageUrl('TwitchLogo.png')" /> Phantom5800</a
-		>
-		&bull;
-		<a href="https://www.youtube.com/@PhantomVODs" target="_blank"
-			><img :width="15" :src="getImageUrl('YoutubeLogo.png')" /> @PhantomVODs</a
-		>
-		&bull;
-		<a href="https://github.com/Phantom5800" target="_blank">Github</a>
-		&bull;&copy;
-		<a href="https://phantom-games.com/" target="_blank"
-			>Phantom Games {{ year }}</a
-		>
-	</footer>
 </template>
 
 <style scoped>

@@ -1,13 +1,13 @@
 # PMR-Tracker
 
 - This is a tracker for the Paper Mario 64 Randomizer found here: https://pm64randomizer.com/
-- The tracker itself is hosted over on: https://pmr-tracker.phantom-games.com/
+- The tracker itself is hosted at: https://pmr-tracker.christianlegge.dev/
 
 ## Features
 
 ### Tracker Logic
 
-Automatically highlights star spirits that are available (without glitches) when all requirements are met.
+Automatically highlights star spirits that are available (without glitches) when all requirements are met. Also supports dungeon entrance shuffle!
 
 ### Seed Import
 
@@ -15,7 +15,7 @@ Import seed id's directly from the randomizer website to configure the tracker a
 
 ### Map Tracker
 
-This was the first (and currently only?) tracker for Paper Mario Randomizer that has a checklist of every available item spawn location in the game in a very detailed map format.
+This was the first tracker for Paper Mario Randomizer that has a checklist of every available item spawn location in the game in a very detailed map format.
 
 ## Building
 
@@ -28,14 +28,16 @@ This was the first (and currently only?) tracker for Paper Mario Randomizer that
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
+The above was included in the project readme by default. My actual recommendation is Vim, but if you can use that you don't need me to tell you about it.
+
 ### Project Setup
 
 ```sh
-$ git clone https://github.com/Phantom5800/pmr-tracker.git
+$ git clone https://github.com/christianlegge/pmr-tracker.git
 # or
-$ git clone git@github.com:Phantom5800/pmr-tracker.git
+$ git clone git@github.com:christianlegge/pmr-tracker.git
 # or
-$ gh repo clone Phantom5800/pmr-tracker
+$ gh repo clone christianlegge/pmr-tracker
 # ...then
 $ cd pmr-tracker
 ```
@@ -97,9 +99,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## Contributing
 
-While the production site is maintained exclusively by Phantom5800, anyone is welcome to submit features and bug fixes as pull requests. Feature development at this point is effectively done, there are a number of [Issues](https://github.com/Phantom5800/pmr-tracker/issues) that could use addressing, but they are all very low priority unless something comes in that absolutely needs addressing.
-
-For anyone that wants to submit changes or new features, all you have to do:
+Anyone is welcome to submit features and bug fixes as pull requests. For anyone that wants to submit changes or new features, all you have to do is:
 
 - Create a fork on github
 - Submit a pull request from your own branch
@@ -113,5 +113,4 @@ Thanks to the following for major feature contributions:
 
 - MarioManTaw
 - MythicFrog
-- scatter
 

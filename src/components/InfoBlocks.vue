@@ -52,10 +52,11 @@ defineEmits(["close"]);
 			</li>
 			<li>
 				For suggestions and feature requests, please make issues on
-				<a href="https://github.com/Phantom5800/pmr-tracker" target="_blank"
+				<a href="https://github.com/christianlegge/pmr-tracker" target="_blank"
 					>Github</a
-				>! If you don't have a Github, you can also reach out on any of the
-				social media in the footer.
+				>! If you don't have a Github, you can also ask for help in the
+				#trackers channel in the randomizer Discord (see their website for a
+				link).
 			</li>
 			<li>To see this message again, click "How to Use" in the top bar.</li>
 			<button @click="$emit('close')">Get started</button>
