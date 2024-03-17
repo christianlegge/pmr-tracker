@@ -20,7 +20,7 @@ import InfoBlocks from "./components/InfoBlocks.vue";
 import FilterConfig from "./components/FilterConfig.vue";
 import SaveData from "./components/SaveData.vue";
 import LoadData from "./components/LoadData.vue";
-import { throttle, getImageUrl } from "./utils/helpers";
+import { throttle } from "./utils/helpers";
 
 type TGridItem = typeof GridItem & {
 	calcXY: (top: number, left: number) => { x: number; y: number };
@@ -102,8 +102,6 @@ const mainWidth = computed(() =>
 		? "auto"
 		: `${options.value.trackerWidth}px`
 );
-
-const year = new Date().getFullYear();
 
 const allItemsFiltered = computed(() =>
 	allItems
