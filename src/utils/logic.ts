@@ -247,6 +247,15 @@ export function whaleOpen({
 }) {
 	return settings.whaleOpen;
 }
+export function puzzlesNotRandomized({
+	settings,
+}: {
+	items: string[];
+	checks: string[];
+	settings: Options;
+}) {
+	return !settings.randomizePuzzles;
+}
 export function multipleItemCheck(item: string, quantity: number) {
 	return ({
 		items,

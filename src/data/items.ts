@@ -196,6 +196,11 @@ export const allItems: TrackableItemInfo[] = [
 		turnInCheck: "Koopa Village East:Give Artifact to Kolorado",
 	},
 	{
+		name: "Lemon",
+		type: "miscItem",
+		image: "icons/PaperMario_Items_Lemon.png",
+	},
+	{
 		chapter: 3,
 		name: "Forest Pass",
 		type: "miscItem",

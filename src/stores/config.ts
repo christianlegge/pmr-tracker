@@ -58,6 +58,7 @@ export type Options = {
 	fastBowserCastle: boolean;
 	limitChapterLogic: boolean;
 	dungeonShuffle: boolean;
+	randomizePuzzles: boolean;
 	startingBoots: string;
 	startingHammer: string;
 	overworldPartners: boolean;
@@ -259,6 +260,12 @@ export const optionsData = {
 	dungeonShuffle: {
 		namespace: "settings",
 		name: "Dungeon Shuffle",
+		type: "boolean",
+		default: false,
+	},
+	randomizePuzzles: {
+		namespace: "settings",
+		name: "Randomize Puzzles",
 		type: "boolean",
 		default: false,
 	},

@@ -1843,16 +1843,44 @@ const regionData: MapRegions = {
 				row: 4,
 				col: 9,
 				checks: {
-					"[Shop] 3 randomized items in Shop (password items are guaranteed vanilla)":
-						{
-							reqs: null,
-						},
+					"[Shop] 3-6 random shop items (depends on Random Puzzles setting)": {
+						reqs: null,
+					},
 					"[Letter] Shop (Chain)": {
 						reqs: ["Dry Dry Shop", "Parakarry"],
 					},
-					"[Koot] Buy Dusty Hammer, Dried Pasta, Dusty Hammer, Dried Shroom": {
-						reqs: null,
-					},
+					"[Koot] Buy Red Jar code items (vanilla: Dusty, Pasta, Dusty, Shroom; learn from Koot at last favor)":
+						{
+							reqs: [
+								[
+									logic.puzzlesNotRandomized,
+									[
+										logic.canReachToadTown,
+										"Hammer",
+										6,
+										"Koopa Legends",
+										"Sleepy Sheep",
+										"Tape",
+										"Koopa Tea",
+										"Luigi's Autograph",
+										"Wallet",
+										"Tasty Tonic",
+										"Merluvlee's Autograph",
+										"Life Shroom",
+										"Nutty Cake",
+										"Eldstar",
+										"Bombette",
+										"Old Photo",
+										"Koopasta",
+										"Glasses",
+										"Lime",
+										"Kooky Cookie",
+										"Package",
+										"Coconut",
+									],
+								],
+							],
+						},
 					"Turn in Lyrics at far right house": {
 						reqs: "Lyrics",
 					},
@@ -1887,9 +1915,10 @@ const regionData: MapRegions = {
 					"Item on rooftops": {
 						reqs: "Boots",
 					},
-					"Talk to Moustafa after buying Dried Shroom + Dusty Hammer": {
-						reqs: "Boots",
-					},
+					"Talk to Moustafa after buying code items (vanilla: Shroom, Dusty; give Lemon to Sheek to learn)":
+						{
+							reqs: ["Boots", [logic.puzzlesNotRandomized, "Lemon"]],
+						},
 				},
 			},
 			"? Block": {
@@ -2189,7 +2218,13 @@ const regionData: MapRegions = {
 							"Pyramid Stone",
 							"Diamond Stone",
 							"Lunar Stone",
-							logic.multipleItemCheck("Ruins Key", 3),
+							[
+								[
+									logic.multipleItemCheck("Ruins Key", 3),
+									logic.puzzlesNotRandomized,
+								],
+								logic.multipleItemCheck("Ruins Key", 4),
+							],
 						],
 					},
 				},
@@ -2816,7 +2851,12 @@ const regionData: MapRegions = {
 				col: 1,
 				checks: {
 					Watt: {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 				},
 			},
@@ -2825,25 +2865,60 @@ const regionData: MapRegions = {
 				col: 2,
 				checks: {
 					"[Coin Block] Left ? Block": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"[Coin Block] Right ? Block": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"Hidden block by first elevator": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"Hidden block between two other ? blocks": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"Hidden block by door to Lantern Ghost room": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"[Upgrade] Super Block": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"[Multicoin Block] On top of wheel": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 				},
 			},
@@ -2852,10 +2927,21 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"[Panel] In front of station": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer", logic.canFlipPanel],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							logic.canFlipPanel,
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"Hidden block on left side": {
-						reqs: [logic.canMoveStations, "Cake", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 				},
 			},
@@ -2864,7 +2950,13 @@ const regionData: MapRegions = {
 				col: 4,
 				checks: {
 					"[Coin Block] ? Block just past barricade": {
-						reqs: [logic.canMoveStations, "Cake", "Bombette", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Bombette",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 					"Item on top of brick block": {
 						reqs: [
@@ -2873,10 +2965,17 @@ const regionData: MapRegions = {
 							"Bombette",
 							"Hammer",
 							["Kooper", "Ultra Boots"],
+							[logic.puzzlesNotRandomized, "Mystery Note"],
 						],
 					},
 					"? Block at end of room": {
-						reqs: [logic.canMoveStations, "Cake", "Bombette", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Bombette",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 				},
 			},
@@ -2886,7 +2985,14 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					Muskular: {
-						reqs: [logic.canMoveStations, "Cake", "Bombette", "Watt", "Hammer"],
+						reqs: [
+							logic.canMoveStations,
+							"Cake",
+							"Bombette",
+							"Watt",
+							"Hammer",
+							[logic.puzzlesNotRandomized, "Mystery Note"],
+						],
 					},
 				},
 			},

@@ -37,6 +37,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue("kootCoinsRandomized", data.IncludeCoinsFavors);
 	optionsStore.setValue("lettersRandomized", data.IncludeLettersMode >= 1);
 	optionsStore.setValue("dungeonShuffle", data.ShuffleDungeonEntrances);
+	optionsStore.setValue("randomizePuzzles", data.RandomizePuzzles);
 	optionsStore.setValue("limitChapterLogic", data.LimitChapterLogic);
 	optionsStore.setValue("merlowRandomized", data.ProgressionOnMerlow);
 	optionsStore.setValue("mtRuggedOpen", data.MtRuggedOpen);

@@ -195,6 +195,7 @@ export type SettingsApiData = {
 	RandomQuiz: boolean;
 	RandomStarpowerSP: number;
 	RandomText: boolean;
+	RandomizePuzzles: boolean;
 	RaphSkipEnglish: boolean;
 	RaphSkipParakarry: boolean;
 	ReachHighBlocksWithSuperBoots: boolean;
