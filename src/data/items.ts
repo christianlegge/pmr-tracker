@@ -199,6 +199,7 @@ export const allItems: TrackableItemInfo[] = [
 		name: "Lemon",
 		type: "miscItem",
 		image: "icons/PaperMario_Items_Lemon.png",
+		turnInCheck: "Dry Dry Outpost East:Give Lemon to Sheek",
 	},
 	{
 		chapter: 3,
