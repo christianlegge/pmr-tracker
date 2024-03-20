@@ -22,15 +22,20 @@ const options = useOptions();
 
 const { heading, itemTypes } = toRefs(props);
 
-const uselessItems = [
-	"Mystery Note",
-	"Cookbook",
-	"Prison Key",
-	"Quizmo",
-	"Star Piece",
-	"Rip Cheato",
-	"Anti Guy",
-];
+const uselessItems = computed(() => {
+	let items = [
+		"Cookbook",
+		"Prison Key",
+		"Quizmo",
+		"Star Piece",
+		"Rip Cheato",
+		"Anti Guy",
+	];
+	if (!options.getValue("randomizePuzzles")) {
+		items = ["Mystery Note", ...items];
+	}
+	return items;
+});
 
 const trackerItems = computed(() => {
 	const filteredItems = props.allItems.filter(
@@ -38,7 +43,8 @@ const trackerItems = computed(() => {
 			itemTypes.value &&
 			itemTypes.value &&
 			itemTypes.value.includes(el.type) &&
-			(options.$state.options.uselessItems || !uselessItems.includes(el.name))
+			(options.$state.options.uselessItems ||
+				!uselessItems.value.includes(el.name))
 	);
 	if (options.$state.options.combineSortMode === "Required First") {
 		const sortOrder: Record<string, number> = {
