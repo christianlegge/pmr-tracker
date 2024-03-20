@@ -288,8 +288,9 @@ export const allItems: TrackableItemInfo[] = [
 		turnInCheck: "Main Gate:Give Dictionary to Russ T.",
 	},
 	{
+		chapter: 4,
 		name: "Mystery Note",
-		type: "miscItem",
+		type: "required",
 		image: "icons/MysteryNote.png",
 		turnInCheck: "Main Gate:Turn in Mystery Note",
 	},

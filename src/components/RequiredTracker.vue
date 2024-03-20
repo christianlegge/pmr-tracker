@@ -4,9 +4,11 @@ import TrackableItem from "./TrackableItem.vue";
 import { usePlaythrough } from "../stores/playthrough";
 import ItemTracker from "./ItemTracker.vue";
 import type { TrackableItemInfo } from "../types/items";
+import { useOptions } from "@/stores/config";
 
 const tooltip = ref("");
 const playthrough = usePlaythrough();
+const options = useOptions();
 
 const props = defineProps<{
 	allItems: TrackableItemInfo[];
@@ -14,9 +16,17 @@ const props = defineProps<{
 	removePanel: () => void;
 }>();
 
+function showMysteryNote() {
+	return (
+		options.getValue("randomizePuzzles") || options.getValue("uselessItems")
+	);
+}
+
 const requiredItems = computed(() =>
-	props.allItems.filter(el =>
-		["chapterReward", "partner", "equipment", "required"].includes(el.type)
+	props.allItems.filter(
+		el =>
+			["chapterReward", "partner", "equipment", "required"].includes(el.type) &&
+			(el.name !== "Mystery Note" || showMysteryNote())
 	)
 );
 
