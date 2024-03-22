@@ -880,7 +880,7 @@ const regionData: MapRegions = {
 					"Item behind right-most pillar": {
 						reqs: [logic.canShakeTree, logic.canClimbLedges],
 					},
-					"Break brick boxes (left, right, middle)": {
+					"Break brick boxes (vanilla order: left, right, middle)": {
 						reqs: [
 							logic.canShakeTree,
 							logic.canClimbLedges,
@@ -1894,7 +1894,11 @@ const regionData: MapRegions = {
 				col: 10,
 				checks: {
 					"[Panel] On rooftops": {
-						reqs: ["Boots", logic.canFlipPanel],
+						reqs: [
+							"Boots",
+							logic.canFlipPanel,
+							[logic.puzzlesNotRandomized, "Lemon"],
+						],
 					},
 					"[Letter] Mr. E (Chain)": {
 						reqs: ["Mr. E", "Parakarry"],
@@ -1913,7 +1917,7 @@ const regionData: MapRegions = {
 						],
 					},
 					"Item on rooftops": {
-						reqs: "Boots",
+						reqs: ["Boots", [logic.puzzlesNotRandomized, "Lemon"]],
 					},
 					"Talk to Moustafa after buying code items (vanilla: Shroom, Dusty; give Lemon to Sheek to learn)":
 						{
@@ -3621,9 +3625,10 @@ const regionData: MapRegions = {
 				row: 3,
 				col: 5,
 				checks: {
-					"Hit trees Middle, Right, Left": {
-						reqs: logic.canShakeTree,
-					},
+					"Hit trees (talk to bottom left NPC in previous screen for order; vanilla: Middle, Right, Left)":
+						{
+							reqs: logic.canShakeTree,
+						},
 					"Second set of vines": { reqs: null },
 				},
 			},
