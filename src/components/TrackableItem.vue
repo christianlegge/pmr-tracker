@@ -143,8 +143,11 @@ const canCheckEntrance = computed(() => {
 		name in chapterRewards &&
 		options.value.trackerLogic &&
 		playthroughStore.canCheckLocation(
-			getRegionData(chapterRewards[name as keyof typeof chapterRewards].region)
-				.reqs!
+			getRegionData(
+				name === "Skolar"
+					? "Tubba's Castle"
+					: chapterRewards[name as keyof typeof chapterRewards].region
+			).reqs!
 		)
 	);
 });
