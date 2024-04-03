@@ -219,9 +219,12 @@ const canCheckEntrance = computed(() => {
 			/>
 			<svg
 				v-if="
-					options.limitChapterLogic &&
-					name in chapterRewards &&
-					!playthroughStore.getSpiritAnnotation(name).required
+					(options.limitChapterLogic &&
+						name in chapterRewards &&
+						!playthroughStore.getSpiritAnnotation(name).required) ||
+					(options.limitChapterLogic &&
+						!options.hideLCLItems &&
+						playthroughStore.getLCLHiddenItems().some(el => el.name === name))
 				"
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
