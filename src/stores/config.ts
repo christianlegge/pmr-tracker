@@ -158,7 +158,7 @@ export const optionsData = {
 		namespace: "config",
 		name: "Hide LCL Items Not Required",
 		type: "boolean",
-		default: true,
+		default: false,
 	},
 	hideLCLAreas: {
 		namespace: "config",
