@@ -74,12 +74,12 @@ const { floatingStyles, middlewareData, placement } = useFloating(
 
 <style scoped>
 .svg {
-	width: 100%;
 	height: 100%;
+	aspect-ratio: 1 / 1;
 	transition:
 		background-color 0.3s,
 		stroke 0.3s;
-	inset: 2;
+	inset: 2px;
 	scale: 0.75;
 }
 
