@@ -274,12 +274,6 @@ export function fastBowserCastle({
 }) {
 	return settings.fastBowserCastle;
 }
-export function powerStarHunt(settings: Options) {
-	return settings.powerStarHunt;
-}
-export function powerStarNum(settings: Options) {
-	return settings.powerStarNum;
-}
 export function showMagicalSeed(num: number) {
 	return (settings: Options) => settings.seedsRequired >= num;
 }
@@ -291,23 +285,19 @@ export function canAscendSummit({
 	checks: string[];
 	settings: Options;
 }) {
-	if (settings.powerStarHunt) {
-		return (
-			items.filter(el => el === "Power Star").length >= settings.powerStarNum
-		);
-	} else {
-		return (
-			items.filter(el =>
-				[
-					"Eldstar",
-					"Mamar",
-					"Skolar",
-					"Muskular",
-					"Misstar",
-					"Klevar",
-					"Kalmar",
-				].includes(el)
-			).length >= 7
-		);
-	}
+	return (
+		items.filter(el => el === "Power Star").length >=
+			settings.starWayStarsNeeded ||
+		items.filter(el =>
+			[
+				"Eldstar",
+				"Mamar",
+				"Skolar",
+				"Muskular",
+				"Misstar",
+				"Klevar",
+				"Kalmar",
+			].includes(el)
+		).length >= settings.starWaySpiritsNeeded
+	);
 }

@@ -56,6 +56,13 @@ export type Options = {
 	blueHouseOpen: boolean;
 	startingLocation: string;
 	fastBowserCastle: boolean;
+	shuffleStarBeam: boolean;
+	starBeamStarsNeeded: number;
+	starBeamSpiritsNeeded: number;
+	starHuntTotal: number;
+	starWayStarsNeeded: number;
+	starWaySpiritsNeeded: number;
+	requireSpecificSpirits: boolean;
 	limitChapterLogic: boolean;
 	dungeonShuffle: boolean;
 	randomizePuzzles: boolean;
@@ -77,9 +84,6 @@ export type Options = {
 	tradingEventRandomized: boolean;
 	superBlocksRandomized: boolean;
 	multicoinBlocksRandomized: boolean;
-	powerStarHunt: boolean;
-	powerStarNum: number;
-	sSkip: boolean;
 	gearShuffle: string;
 };
 
@@ -269,6 +273,53 @@ export const optionsData = {
 		type: "boolean",
 		default: false,
 	},
+	shuffleStarBeam: {
+		namespace: "settings",
+		name: "Shuffle Star Beam",
+		type: "boolean",
+		default: false,
+	},
+	starBeamStarsNeeded: {
+		namespace: "settings",
+		name: "Star Beam Power Stars Needed",
+		type: "number",
+		default: 0,
+		range: [0, 120],
+	},
+	starBeamSpiritsNeeded: {
+		namespace: "settings",
+		name: "Star Beam Star Spirits Needed",
+		type: "number",
+		default: 7,
+		range: [0, 7],
+	},
+	starHuntTotal: {
+		namespace: "settings",
+		name: "Power Star Hunt Total",
+		type: "number",
+		default: 0,
+		range: [0, 120],
+	},
+	starWayStarsNeeded: {
+		namespace: "settings",
+		name: "Star Way Power Stars Needed",
+		type: "number",
+		default: 0,
+		range: [0, 120],
+	},
+	starWaySpiritsNeeded: {
+		namespace: "settings",
+		name: "Star Way Star Spirits Needed",
+		type: "number",
+		default: 7,
+		range: [0, 7],
+	},
+	requireSpecificSpirits: {
+		namespace: "settings",
+		name: "Require Specific Star Spirits",
+		type: "boolean",
+		default: false,
+	},
 	limitChapterLogic: {
 		namespace: "settings",
 		name: "Limit Chapter Logic",
@@ -384,25 +435,6 @@ export const optionsData = {
 		name: "Multicoin Blocks Randomized",
 		type: "boolean",
 		default: false,
-	},
-	powerStarHunt: {
-		namespace: "settings",
-		name: "Power Star Hunt",
-		type: "boolean",
-		default: false,
-	},
-	powerStarNum: {
-		namespace: "settings",
-		name: "Power Stars Required",
-		type: "number",
-		default: 120,
-		range: [0, 120],
-	},
-	sSkip: {
-		namespace: "settings",
-		name: "Star Hunt Skips Ch. 8",
-		type: "boolean",
-		default: true,
 	},
 	gearShuffle: {
 		namespace: "settings",

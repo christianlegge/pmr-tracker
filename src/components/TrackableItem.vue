@@ -53,7 +53,7 @@ const { floatingStyles, middlewareData, placement } = useFloating(
 );
 
 const powerStarNum = computed(() =>
-	name === "Power Star" ? options.value.powerStarNum : null
+	name === "Power Star" ? options.value.starHuntTotal : null
 );
 
 const bootsOrHammer = computed(() => name === "Boots" || name === "Hammer");
@@ -219,7 +219,7 @@ const canCheckEntrance = computed(() => {
 			/>
 			<svg
 				v-if="
-					(options.limitChapterLogic &&
+					(options.requireSpecificSpirits &&
 						name in chapterRewards &&
 						!playthroughStore.getSpiritAnnotation(name).required) ||
 					(options.limitChapterLogic &&
@@ -463,9 +463,9 @@ const canCheckEntrance = computed(() => {
 				</svg>
 			</button>
 
-			<h3 v-if="options.limitChapterLogic">Limit Chapter Logic</h3>
+			<h3 v-if="options.requireSpecificSpirits">Require Specific Spirits</h3>
 			<button
-				v-if="options.limitChapterLogic"
+				v-if="options.requireSpecificSpirits"
 				:style="{
 					color: 'white',
 					width: '100%',

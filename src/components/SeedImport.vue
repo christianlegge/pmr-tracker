@@ -38,16 +38,20 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue("lettersRandomized", data.IncludeLettersMode >= 1);
 	optionsStore.setValue("dungeonShuffle", data.ShuffleDungeonEntrances);
 	optionsStore.setValue("randomizePuzzles", data.RandomizePuzzles);
+	optionsStore.setValue("requireSpecificSpirits", data.RequireSpecificSpirits);
 	optionsStore.setValue("limitChapterLogic", data.LimitChapterLogic);
 	optionsStore.setValue("merlowRandomized", data.ProgressionOnMerlow);
 	optionsStore.setValue("mtRuggedOpen", data.MtRuggedOpen);
 	optionsStore.setValue("multicoinBlocksRandomized", data.ShuffleBlocks);
 	optionsStore.setValue("panelsRandomized", data.IncludePanels);
-	optionsStore.setValue("powerStarHunt", data.StarHunt);
-	optionsStore.setValue("powerStarNum", data.StarHuntRequired);
+	optionsStore.setValue("shuffleStarBeam", data.ShuffleStarBeam);
+	optionsStore.setValue("starBeamStarsNeeded", data.StarBeamPowerStarsNeeded);
+	optionsStore.setValue("starBeamSpiritsNeeded", data.StarBeamSpiritsNeeded);
+	optionsStore.setValue("starHuntTotal", data.StarHuntTotal);
+	optionsStore.setValue("starWayStarsNeeded", data.StarWayPowerStarsNeeded);
+	optionsStore.setValue("starWaySpiritsNeeded", data.StarWaySpiritsNeededCnt);
 	optionsStore.setValue("prologueOpen", data.PrologueOpen);
 	optionsStore.setValue("rowfRandomized", data.ProgressionOnRowf);
-	optionsStore.setValue("sSkip", data.StarHuntEndsGame);
 	optionsStore.setValue(
 		"seedsRequired",
 		Math.min(4, data.MagicalSeedsRequired)
