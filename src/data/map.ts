@@ -4582,7 +4582,7 @@ const regionData: MapRegions = {
 				col: 2,
 				checks: {
 					"Star Rod": {
-						reqs: null,
+						reqs: logic.canGetStarBeam,
 					},
 				},
 			},

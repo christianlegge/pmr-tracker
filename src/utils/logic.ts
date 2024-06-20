@@ -287,7 +287,7 @@ export function canAscendSummit({
 }) {
 	return (
 		items.filter(el => el === "Power Star").length >=
-			settings.starWayStarsNeeded ||
+			settings.starWayStarsNeeded &&
 		items.filter(el =>
 			[
 				"Eldstar",
@@ -300,4 +300,32 @@ export function canAscendSummit({
 			].includes(el)
 		).length >= settings.starWaySpiritsNeeded
 	);
+}
+export function canGetStarBeam({
+	items,
+	settings,
+}: {
+	items: string[];
+	checks: string[];
+	settings: Options;
+}) {
+	if (settings.shuffleStarBeam) {
+		return items.includes("Star Beam");
+	} else {
+		return (
+			items.filter(el => el === "Power Star").length >=
+				settings.starBeamStarsNeeded &&
+			items.filter(el =>
+				[
+					"Eldstar",
+					"Mamar",
+					"Skolar",
+					"Muskular",
+					"Misstar",
+					"Klevar",
+					"Kalmar",
+				].includes(el)
+			).length >= settings.starBeamSpiritsNeeded
+		);
+	}
 }
