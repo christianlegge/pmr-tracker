@@ -301,6 +301,30 @@ export function canAscendSummit({
 		).length >= settings.starWaySpiritsNeeded
 	);
 }
+export function canCheckStarBeam({
+	items,
+	settings,
+}: {
+	items: string[];
+	checks: string[];
+	settings: Options;
+}) {
+	return (
+		items.filter(el => el === "Power Star").length >=
+			settings.starBeamStarsNeeded &&
+		items.filter(el =>
+			[
+				"Eldstar",
+				"Mamar",
+				"Skolar",
+				"Muskular",
+				"Misstar",
+				"Klevar",
+				"Kalmar",
+			].includes(el)
+		).length >= settings.starBeamSpiritsNeeded
+	);
+}
 export function canGetStarBeam({
 	items,
 	settings,

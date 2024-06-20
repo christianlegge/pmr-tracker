@@ -28,7 +28,10 @@ const regions = computed(() =>
 				!options.getValue("hideBowsersCastle")
 		)
 		.filter(
-			el => el !== "Peach's Castle" || !options.getValue("hidePeachsCastle")
+			el =>
+				el !== "Peach's Castle" ||
+				options.getValue("shuffleStarBeam") ||
+				!options.getValue("hidePeachsCastle")
 		)
 		.filter(
 			el =>

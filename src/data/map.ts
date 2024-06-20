@@ -4581,6 +4581,9 @@ const regionData: MapRegions = {
 				row: 1,
 				col: 2,
 				checks: {
+					"[Shuffle Star Beam] Star Beam": {
+						reqs: logic.canCheckStarBeam,
+					},
 					"Star Rod": {
 						reqs: logic.canGetStarBeam,
 					},

@@ -408,6 +408,7 @@ export const usePlaythrough = defineStore("playthrough", {
 				Upgrade: settings.superBlocksRandomized,
 				"Multicoin Block": settings.multicoinBlocksRandomized,
 				"Closed Forest": !settings.forestOpen,
+				"Shuffle Star Beam": settings.shuffleStarBeam,
 			};
 
 			if (check.startsWith("[")) {
