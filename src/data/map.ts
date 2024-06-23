@@ -4479,6 +4479,9 @@ const regionData: MapRegions = {
 					"[Shop] 6 items in shop": {
 						reqs: null,
 					},
+					"[Shuffle Star Beam] Star Beam": {
+						reqs: logic.canCheckStarBeam,
+					},
 				},
 			},
 			"Lava Corridor 1": {
@@ -4581,9 +4584,6 @@ const regionData: MapRegions = {
 				row: 1,
 				col: 2,
 				checks: {
-					"[Shuffle Star Beam] Star Beam": {
-						reqs: logic.canCheckStarBeam,
-					},
 					"Star Rod": {
 						reqs: logic.canGetStarBeam,
 					},
