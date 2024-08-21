@@ -426,7 +426,7 @@ export const optionsData = {
 	},
 	superBlocksRandomized: {
 		namespace: "settings",
-		name: "Super Blocks Randomized",
+		name: "Partner Upgrade Shuffle",
 		type: "boolean",
 		default: false,
 	},

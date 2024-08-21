@@ -84,7 +84,10 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 			1114882: "Yoshi Village",
 		}[data.StartingMap.toString()] ?? "Toad Town" // default to Toad Town if Random Pick or unknown
 	);
-	optionsStore.setValue("superBlocksRandomized", data.ShuffleBlocks);
+	optionsStore.setValue(
+		"superBlocksRandomized",
+		data.PartnerUpgradeShuffle >= 1
+	);
 	optionsStore.setValue("toyboxOpen", data.ToyboxOpen);
 	optionsStore.setValue("tradingEventRandomized", data.IncludeRadioTradeEvent);
 	optionsStore.setValue("whaleOpen", data.WhaleOpen);
