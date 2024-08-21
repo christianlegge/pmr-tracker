@@ -10,6 +10,6 @@ export const has3Letters = ({
 }): boolean => {
 	return (
 		allItems.filter(el => el.type === "letter" && items.includes(el.name))
-			.length >= 3
+			.length >= 3 || items.filter(el => el === "Letters").length >= 3
 	);
 };
