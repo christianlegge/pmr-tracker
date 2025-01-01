@@ -388,7 +388,7 @@ const canCheckEntrance = computed(() => {
 			></div>
 			<h3>Chapter Scaling</h3>
 			<button
-				v-for="num in [1, 2, 3, 4, 5, 6, 7, 0]"
+				v-for="num in [1, 2, 3, 4, 5, 6, 7, 8, 0]"
 				:key="num"
 				class="scaling"
 				@click.prevent="
@@ -425,6 +425,7 @@ const canCheckEntrance = computed(() => {
 			<button
 				v-for="star in [
 					...Object.getOwnPropertyNames(chapterRewards).slice(0, 7),
+					'Bowser',
 					'',
 				]"
 				:key="star"
