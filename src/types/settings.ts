@@ -30,6 +30,7 @@ export type SettingsApiData = {
 	BombettelessRightFortressJailKey: boolean;
 	BoosPortraitWithKooper: boolean;
 	BoosPortraitWithLaki: boolean;
+	BossShuffleMode: number;
 	BossesSetting: number;
 	BowSetting: number;
 	BowSprite: number;
@@ -173,9 +174,9 @@ export type SettingsApiData = {
 	ParakarrylessSewerStarPiece: boolean;
 	ParakarrylessSuperHammerRoomNormalBoots: boolean;
 	ParakarrylessSuperHammerRoomUltraBoots: boolean;
+	PartnerShuffle: number;
 	PartnerUpgradeShuffle: number;
 	PartnersAlwaysUsable: boolean;
-	PartnersInDefaultLocations: boolean;
 	ProgressionOnMerlow: boolean;
 	ProgressionOnRowf: boolean;
 	ProgressiveBadges: boolean;
