@@ -1503,7 +1503,12 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					Bombette: {
-						reqs: "Fortress Key",
+						reqs: [
+							[
+								["Fortress Key", "Bombette"],
+								logic.multipleItemCheck("Fortress Key", 2),
+							],
+						],
 					},
 				},
 			},
@@ -3554,7 +3559,7 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"Item on ledge": {
-						reqs: [["Lakilester", "Bubble Berry"]],
+						reqs: [["Lakilester", "Bubble Berry"], logic.canClimbLedges],
 					},
 					"Item in vines immediately below ledge item": {
 						reqs: null,
@@ -3894,7 +3899,7 @@ const regionData: MapRegions = {
 				col: 1,
 				checks: {
 					"[Panel] Next to the Mayor's house": {
-						reqs: logic.canFlipPanel,
+						reqs: ["Warehouse Key", logic.canFlipPanel],
 					},
 					"[Letter] Mayor Penguin": {
 						reqs: ["Mayor Penguin", "Parakarry"],
