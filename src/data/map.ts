@@ -3899,13 +3899,13 @@ const regionData: MapRegions = {
 				col: 1,
 				checks: {
 					"[Panel] Next to the Mayor's house": {
-						reqs: ["Warehouse Key", logic.canFlipPanel],
+						reqs: ["Warehouse Key", "Boots", logic.canFlipPanel],
 					},
 					"[Letter] Mayor Penguin": {
 						reqs: ["Mayor Penguin", "Parakarry"],
 					},
 					"Talk to Mayor after having met Merle": {
-						reqs: "Warehouse Key",
+						reqs: ["Warehouse Key", "Boots"],
 					},
 					"Chest in middle house": {
 						reqs: null,
@@ -3923,7 +3923,7 @@ const regionData: MapRegions = {
 						reqs: null,
 					},
 					"5 items in the Inn after giving Scarf and Bucket to snowmen": {
-						reqs: ["Warehouse Key", "Scarf", "Bucket"],
+						reqs: ["Warehouse Key", "Scarf", "Bucket", "Boots"],
 					},
 				},
 			},
@@ -3942,13 +3942,13 @@ const regionData: MapRegions = {
 				col: 5,
 				checks: {
 					"[Panel] Along bottom of room": {
-						reqs: ["Warehouse Key", logic.canFlipPanel],
+						reqs: ["Warehouse Key", logic.canFlipPanel, "Boots"],
 					},
 					"Hit left pine tree 4 times": {
-						reqs: ["Warehouse Key", "Hammer"],
+						reqs: ["Warehouse Key", "Hammer", "Boots"],
 					},
 					"Item behind pine tree in top right corner": {
-						reqs: "Warehouse Key",
+						reqs: ["Warehouse Key", "Boots"],
 					},
 				},
 			},
@@ -3957,10 +3957,10 @@ const regionData: MapRegions = {
 				col: 6,
 				checks: {
 					"Item behind ice": {
-						reqs: "Warehouse Key",
+						reqs: ["Warehouse Key", "Boots"],
 					},
 					"Hidden block where you fight Monstar": {
-						reqs: "Warehouse Key",
+						reqs: ["Warehouse Key", "Boots"],
 					},
 				},
 			},
@@ -3969,10 +3969,10 @@ const regionData: MapRegions = {
 				col: 7,
 				checks: {
 					"[Letter] Frost T. (Chain)": {
-						reqs: ["Warehouse Key", "Frost T.", "Parakarry"],
+						reqs: ["Warehouse Key", "Boots", "Frost T.", "Parakarry"],
 					},
 					"Talk to Merle": {
-						reqs: "Warehouse Key",
+						reqs: ["Warehouse Key", "Boots"],
 					},
 				},
 			},
