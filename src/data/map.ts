@@ -699,7 +699,7 @@ const regionData: MapRegions = {
 				col: 3,
 				checks: {
 					"Item on far right ledge": {
-						reqs: ["Super Hammer", "Parakarry"],
+						reqs: ["Boots", "Super Hammer", "Parakarry"],
 					},
 				},
 			},
@@ -708,7 +708,7 @@ const regionData: MapRegions = {
 				col: 4,
 				checks: {
 					"[Upgrade] Super Block": {
-						reqs: ["Super Hammer", logic.canBreakBlocksAbove],
+						reqs: ["Boots", "Super Hammer", logic.canBreakBlocksAbove],
 					},
 				},
 			},
