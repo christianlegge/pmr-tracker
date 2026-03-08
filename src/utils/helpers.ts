@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/consistent-type-assertions */
 export const safeKeys = <T extends object>(o: T) =>
 	Object.getOwnPropertyNames(o) as Array<keyof T>;
-/* eslint-enable */
 
 export function throttle<T>(
 	fn: (...args: T[]) => void,
@@ -20,5 +18,7 @@ export function throttle<T>(
 }
 
 export function getImageUrl(image: string) {
-	return new URL(`../assets/images/${image}`, import.meta.url).href;
+	const path = `../assets/images/${image}`;
+	const url = new URL(path, import.meta.url);
+	return url.href;
 }
