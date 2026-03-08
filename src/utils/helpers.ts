@@ -18,7 +18,6 @@ export function throttle<T>(
 }
 
 export function getImageUrl(image: string) {
-	const path = `../assets/images/${image}`;
-	const url = new URL(path, import.meta.url);
-	return url.href;
+	const path = `/images/${image}`;
+	return path;
 }

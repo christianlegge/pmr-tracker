@@ -442,7 +442,7 @@ if (!localStorage.getItem("visited")) {
 				</svg>
 			</SvgButton>
 		</div>
-		<img id="logo-img" src="./assets/images/Logo.png" />
+		<img id="logo-img" src="/images/Logo.png" />
 		<div class="buttons" :style="{ justifyContent: 'flex-end' }">
 			<SvgButton name="How to Use" @click="openModal = 'info'"
 				><svg
