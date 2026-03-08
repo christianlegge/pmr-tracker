@@ -509,7 +509,7 @@ export const useOptions = defineStore("options", {
 		},
 		getItemFilter(key: string): ItemFilter {
 			if (key in this.itemFilters) {
-				return this.itemFilters[key];
+				return this.itemFilters[key]!;
 			} else {
 				return "default";
 			}

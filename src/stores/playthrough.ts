@@ -150,19 +150,19 @@ export const usePlaythrough = defineStore("playthrough", {
 			);
 		},
 		getSpiritAnnotation(k: keyof PlaythroughProps["spiritAnnotations"]) {
-			return this.spiritAnnotations[k];
+			return this.spiritAnnotations[k]!;
 		},
 		setSpiritAnnotation(
 			k: keyof PlaythroughProps["spiritAnnotations"],
 			value: Partial<SpiritAnnotations>
 		) {
-			this.spiritAnnotations[k] = { ...this.spiritAnnotations[k], ...value };
+			this.spiritAnnotations[k] = { ...this.spiritAnnotations[k]!, ...value };
 			this.save();
 		},
 		toggleSpiritRequired(k: keyof PlaythroughProps["spiritAnnotations"]) {
 			this.spiritAnnotations[k] = {
-				...this.spiritAnnotations[k],
-				required: !this.spiritAnnotations[k].required,
+				...this.spiritAnnotations[k]!,
+				required: !this.spiritAnnotations[k]!.required,
 			};
 			this.save();
 		},
@@ -173,12 +173,12 @@ export const usePlaythrough = defineStore("playthrough", {
 					el.chapter &&
 					1 <= el.chapter &&
 					el.chapter <= 7 &&
-					!this.spiritAnnotations[starSpirits[el.chapter - 1]].required
+					!this.spiritAnnotations[starSpirits[el.chapter - 1]!]!.required
 			);
 		},
 		getLCLHiddenAreas() {
 			return Object.keys(regionsPerChapter).filter(
-				el => !this.spiritAnnotations[regionsPerChapter[el]].required
+				el => !this.spiritAnnotations[regionsPerChapter[el]!]!.required
 			);
 		},
 		cycleUpgrade(k: string) {
@@ -247,15 +247,21 @@ export const usePlaythrough = defineStore("playthrough", {
 		},
 		fullClearedArea(region: string, area: string) {
 			const data = getRegionData(region);
+			if (!data) {
+				throw new Error(`could not get region data for ${region}`);
+			}
 			const areaChecks = Object.getOwnPropertyNames(
-				data.areas[area].checks
+				data.areas[area]!.checks
 			).filter(el =>
-				this.canCheckLocation(data.areas[area].checks[el].reqs, region)
+				this.canCheckLocation(data.areas[area]!.checks[el]!.reqs, region)
 			);
 			return areaChecks.every(el => this.checks.includes(`${area}:${el}`));
 		},
 		toggleRegionChecks(region: string) {
 			const data = getRegionData(region);
+			if (!data) {
+				throw new Error(`could not get region data for ${region}`);
+			}
 			const hasAll = Object.getOwnPropertyNames(data.areas).every(el =>
 				this.fullClearedArea(region, el)
 			);
@@ -269,10 +275,13 @@ export const usePlaythrough = defineStore("playthrough", {
 			force: boolean | undefined = undefined
 		) {
 			const data = getRegionData(region);
+			if (!data) {
+				throw new Error(`could not get region data for ${region}`);
+			}
 			const areaChecks = Object.getOwnPropertyNames(
-				data.areas[area].checks
+				data.areas[area]!.checks
 			).filter(el =>
-				this.canCheckLocation(data.areas[area].checks[el].reqs, region)
+				this.canCheckLocation(data.areas[area]!.checks[el]!.reqs, region)
 			);
 			const hasAll = areaChecks.every(el =>
 				this.checks.includes(`${area}:${el}`)
@@ -332,25 +341,25 @@ export const usePlaythrough = defineStore("playthrough", {
 			const options = useOptions();
 
 			if (!Object.getOwnPropertyNames(dungeonRegions).includes(region)) {
-				return getRegionData(region).reqs;
+				return getRegionData(region)!.reqs;
 			}
 			const shuffledEntrance = Object.getOwnPropertyNames(
 				this.spiritAnnotations
 			).find(
 				el =>
-					this.spiritAnnotations[el].entrance ===
+					this.spiritAnnotations[el]!.entrance ===
 					dungeonRegions[region as keyof typeof dungeonRegions]
 			);
 			if (!shuffledEntrance) {
 				return options.options.dungeonShuffle
 					? false
-					: getRegionData(region).reqs;
+					: getRegionData(region)!.reqs;
 			}
 			const shuffledDungeon = Object.getOwnPropertyNames(dungeonRegions).find(
 				r =>
 					dungeonRegions[r as keyof typeof dungeonRegions] === shuffledEntrance
 			);
-			return getRegionData(shuffledDungeon!).reqs;
+			return getRegionData(shuffledDungeon!)!.reqs;
 		},
 		canGetSkolar() {
 			const canReachGulch = resolveRequirement(
@@ -378,7 +387,7 @@ export const usePlaythrough = defineStore("playthrough", {
 				options.getValue("limitChapterLogic") &&
 				region &&
 				region in regionsPerChapter &&
-				!this.spiritAnnotations[regionsPerChapter[region]].required
+				!this.spiritAnnotations[regionsPerChapter[region]!]!.required
 			) {
 				return false;
 			}

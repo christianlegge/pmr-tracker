@@ -42,12 +42,12 @@ const regions = computed(() =>
 const currentRegion = ref("Toad Town");
 const currentArea = ref("Main Gate");
 
-const currentRegionData = computed(() => getRegionData(currentRegion.value));
+const currentRegionData = computed(() => getRegionData(currentRegion.value)!);
 
 const itemCounts = computed(() =>
 	allRegions.reduce<Record<string, ItemCounts & Record<string, ItemCounts>>>(
 		(a, v) => {
-			const data = getRegionData(v);
+			const data = getRegionData(v)!;
 			const areaCounts = Object.entries(data.areas).reduce<
 				Record<string, ItemCounts>
 			>(
@@ -107,13 +107,13 @@ const itemCounts = computed(() =>
 
 const unshuffledChecks = computed(() =>
 	Object.getOwnPropertyNames(
-		currentRegionData.value.areas[currentArea.value].checks
+		currentRegionData.value.areas[currentArea.value]!.checks
 	).filter(el => !playthrough.locationIsRandomized(el))
 );
 
 const checksToShow = computed(() =>
 	Object.entries(
-		currentRegionData.value.areas[currentArea.value].checks
+		currentRegionData.value.areas[currentArea.value]!.checks
 	).filter(
 		el =>
 			!options.getValue("hideNonShuffledChecks") ||
@@ -135,23 +135,23 @@ const checksToShow = computed(() =>
 				class="map-select"
 				:class="{
 					selected: region === currentRegion,
-					fullCleared: itemCounts[region].has >= itemCounts[region].total,
-					checksInLogic: itemCounts[region].available > 0,
+					fullCleared: itemCounts[region]!.has >= itemCounts[region]!.total,
+					checksInLogic: itemCounts[region]!.available > 0,
 				}"
 				@click="
 					currentRegion = region;
-					currentArea = Object.getOwnPropertyNames(currentRegionData.areas)[0];
+					currentArea = Object.getOwnPropertyNames(currentRegionData.areas)[0]!;
 				"
 				@contextmenu.prevent="playthrough.toggleRegionChecks(region)"
 			>
-				{{ region }} {{ itemCounts[region].available || "" }}
+				{{ region }} {{ itemCounts[region]!.available || "" }}
 			</button>
 		</div>
 		<div class="map-grid">
 			<h2>
-				{{ currentRegion }} ({{ itemCounts[currentRegion].has }}/{{
-					itemCounts[currentRegion].available
-				}}/{{ itemCounts[currentRegion].total }})
+				{{ currentRegion }} ({{ itemCounts[currentRegion]!.has }}/{{
+					itemCounts[currentRegion]!.available
+				}}/{{ itemCounts[currentRegion]!.total }})
 			</h2>
 			<div class="map-areas">
 				<button
@@ -160,17 +160,17 @@ const checksToShow = computed(() =>
 					class="map-area"
 					:class="{
 						selected: area === currentArea,
-						checksInLogic: itemCounts[currentRegion][area].available > 0,
+						checksInLogic: itemCounts[currentRegion]![area]!.available > 0,
 						fullCleared:
-							itemCounts[currentRegion][area].has >=
-							itemCounts[currentRegion][area].total,
+							itemCounts[currentRegion]![area]!.has >=
+							itemCounts[currentRegion]![area]!.total,
 					}"
 					:style="{
-						gridRow: `${currentRegionData.areas[area].row} / span ${
-							currentRegionData.areas[area].rowSpan || 1
+						gridRow: `${currentRegionData.areas[area]!.row} / span ${
+							currentRegionData.areas[area]!.rowSpan || 1
 						}`,
-						gridColumn: `${currentRegionData.areas[area].col} / span ${
-							currentRegionData.areas[area].colSpan || 1
+						gridColumn: `${currentRegionData.areas[area]!.col} / span ${
+							currentRegionData.areas[area]!.colSpan || 1
 						}`,
 					}"
 					@click="currentArea = area"

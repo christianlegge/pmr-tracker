@@ -31,7 +31,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue(
 		"gearShuffle",
 		0 <= data.GearShuffleMode && data.GearShuffleMode <= 2
-			? ["Vanilla", "Big Chest Shuffle", "Full Shuffle"][data.GearShuffleMode]
+			? ["Vanilla", "Big Chest Shuffle", "Full Shuffle"][data.GearShuffleMode]!
 			: "Vanilla"
 	);
 	optionsStore.setValue("keysRandomized", data.KeyitemsOutsideDungeon);
@@ -65,7 +65,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 		-1 <= data.StartingBoots && data.StartingBoots <= 2
 			? ["Bootless", "Boots", "Super Boots", "Ultra Boots"][
 					data.StartingBoots + 1
-				]
+				]!
 			: "Bootless"
 	);
 	optionsStore.setValue(
@@ -73,7 +73,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 		-1 <= data.StartingHammer && data.StartingHammer <= 2
 			? ["Hammerless", "Hammer", "Super Hammer", "Ultra Hammer"][
 					data.StartingHammer + 1
-				]
+				]!
 			: "Hammerless"
 	);
 	optionsStore.setValue("overworldPartners", data.PartnersAlwaysUsable);

@@ -195,8 +195,8 @@ const dragFromMenu = throttle((panelKey: keyof typeof panels) => {
 				panels[panelKey].h,
 				panels[panelKey].w
 			);
-			dragItem.x = layout.value[index].x;
-			dragItem.y = layout.value[index].y;
+			dragItem.x = layout.value[index]!.x;
+			dragItem.y = layout.value[index]!.y;
 		} else {
 			gridLayout.value.dragEvent(
 				"dragend",

@@ -106,7 +106,7 @@ const derivedData = computed(
 const showCheck = computed(() => {
 	if (turnInCheck) {
 		const [checkArea, checkCheck] = turnInCheck.split(":");
-		return playthroughStore.checkedLocation(checkArea, checkCheck);
+		return playthroughStore.checkedLocation(checkArea!, checkCheck!);
 	} else {
 		return false;
 	}
@@ -132,7 +132,7 @@ const shouldGlow = computed(() => {
 				info.turnInCheck &&
 				playthroughStore.chaptersBeaten() >=
 					playthroughStore.getRequiredChapters(
-						kootReqs[info.turnInCheck.split(":")[1]]
+						kootReqs[info.turnInCheck.split(":")[1]!]!
 					)))
 	);
 });
@@ -146,8 +146,8 @@ const canCheckEntrance = computed(() => {
 			getRegionData(
 				name === "Skolar"
 					? "Tubba's Castle"
-					: chapterRewards[name as keyof typeof chapterRewards].region
-			).reqs!
+					: chapterRewards[name as keyof typeof chapterRewards]!.region
+			)!.reqs!
 		)
 	);
 });
@@ -198,7 +198,7 @@ const canCheckEntrance = computed(() => {
 						showStarTooltip = !showStarTooltip;
 					} else if (turnInCheck) {
 						const [checkArea, checkCheck] = turnInCheck.split(':');
-						playthroughStore.toggleCheck(checkArea, checkCheck);
+						playthroughStore.toggleCheck(checkArea!, checkCheck!);
 					} else if (powerStarNum || multiple || bootsOrHammer) {
 						playthroughStore.removeItem(derivedData.removing);
 					} else if (info.type === 'partner') {

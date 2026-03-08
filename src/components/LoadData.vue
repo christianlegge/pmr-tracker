@@ -71,10 +71,10 @@ function loadFromFile(file: File) {
 				e => {
 					const file = (e.target as HTMLInputElement).files;
 					if (file && file.length > 0) {
-						if (file[0].size < 5000000) {
-							loadFromFile(file[0]);
+						if (file[0]!.size < 5000000) {
+							loadFromFile(file[0]!);
 						} else {
-							errorMessage = `The file is too big (${file[0].size} bytes)! If you're sure this is a file obtained from the Save Tracker Data function, please report this.`;
+							errorMessage = `The file is too big (${file[0]!.size} bytes)! If you're sure this is a file obtained from the Save Tracker Data function, please report this.`;
 						}
 					}
 				}
