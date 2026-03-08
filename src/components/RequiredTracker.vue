@@ -91,7 +91,7 @@ div.container {
 div.rows {
 	display: grid;
 	grid-template-rows: repeat(10, 1fr);
-	justify-content: center;
+	justify-content: stretch;
 	row-gap: 0.5rem;
 	height: 100%;
 	width: 100%;
@@ -101,7 +101,6 @@ div.gridrow {
 	display: grid;
 	grid-template-columns: repeat(8, minmax(0, 1fr));
 	align-items: center;
-	flex: 1;
 	min-height: 0;
 }
 
