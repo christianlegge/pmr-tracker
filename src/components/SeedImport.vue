@@ -15,7 +15,9 @@ const seedInput = ref<HTMLInputElement | null>(null);
 const emit = defineEmits(["seedImported"]);
 
 onMounted(() => {
-	seedInput.value && seedInput.value.focus();
+	if (seedInput.value) {
+		seedInput.value.focus();
+	}
 });
 
 function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {

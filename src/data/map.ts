@@ -4689,7 +4689,7 @@ const regionData: MapRegions = {
 export const kootReqs = Object.values(regionData)
 	.flatMap(v =>
 		Object.values(v.areas).flatMap(av =>
-			Object.entries(av.checks).filter(([ck, _]) => ck.startsWith("[Koot"))
+			Object.entries(av.checks).filter(([ck]) => ck.startsWith("[Koot"))
 		)
 	)
 	.reduce(
@@ -4700,9 +4700,9 @@ export const kootReqs = Object.values(regionData)
 export const getRewardReqs = (reward: string) => {
 	const region = chapterRewards[reward as keyof typeof chapterRewards].region;
 	const area = chapterRewards[reward as keyof typeof chapterRewards].area;
-	return regionData[region].areas[area].checks[reward].reqs;
+	return regionData[region]!.areas[area]!.checks[reward]!.reqs;
 };
 export const allRegions = Object.getOwnPropertyNames(regionData);
 export const getRegionData = (region: string) => regionData[region];
 export const getChecks = (region: string, area: string) =>
-	regionData[region].areas[area].checks;
+	regionData[region]!.areas[area]!.checks;

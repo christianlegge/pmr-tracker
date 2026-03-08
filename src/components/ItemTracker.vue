@@ -41,7 +41,6 @@ const trackerItems = computed(() => {
 	const filteredItems = props.allItems.filter(
 		el =>
 			itemTypes.value &&
-			itemTypes.value &&
 			itemTypes.value.includes(el.type) &&
 			(options.$state.options.uselessItems ||
 				!uselessItems.value.includes(el.name))

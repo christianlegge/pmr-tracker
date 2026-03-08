@@ -70,7 +70,9 @@ function copySaveData() {
 		})
 		.catch(err => {
 			console.error(err);
-			dataTextarea.value && dataTextarea.value.select();
+			if (dataTextarea.value) {
+				dataTextarea.value.select();
+			}
 			document.execCommand("copy");
 		});
 }
