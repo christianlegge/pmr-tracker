@@ -219,10 +219,10 @@ const canCheckEntrance = computed(() => {
 			/>
 			<svg
 				v-if="
-					(options.requireSpecificSpirits &&
+					(options.requiredChapters.includes('Specific') &&
 						name in chapterRewards &&
 						!playthroughStore.getSpiritAnnotation(name).required) ||
-					(options.limitChapterLogic &&
+					(options.requiredChapters.includes('Limit') &&
 						!options.hideLCLItems &&
 						playthroughStore.getLCLHiddenItems().some(el => el.name === name))
 				"
@@ -464,9 +464,11 @@ const canCheckEntrance = computed(() => {
 				</svg>
 			</button>
 
-			<h3 v-if="options.requireSpecificSpirits">Require Specific Spirits</h3>
+			<h3 v-if="options.requiredChapters.includes('Specific')">
+				Require Specific Spirits
+			</h3>
 			<button
-				v-if="options.requireSpecificSpirits"
+				v-if="options.requiredChapters.includes('Specific')"
 				:style="{
 					color: 'white',
 					width: '100%',

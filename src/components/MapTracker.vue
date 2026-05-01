@@ -33,7 +33,7 @@ const regions = computed(() =>
 		)
 		.filter(
 			el =>
-				!options.getValue("limitChapterLogic") ||
+				!options.getValue("requiredChapters").includes("Limit") ||
 				!options.getValue("hideLCLAreas") ||
 				!playthrough.getLCLHiddenAreas().includes(el)
 		)

@@ -10,7 +10,7 @@ const { options } = storeToRefs(optionsStore);
 
 const settings: { id: keyof Options; src: string }[] = [
 	{ id: "shopsRandomized", src: "flags/HarryTPM.png" },
-	{ id: "rowfRandomized", src: "flags/Rowf.png" },
+	{ id: "rowfItemsInLogic", src: "flags/Rowf.png" },
 	{ id: "merlowRandomized", src: "flags/Merlow.png" },
 	{ id: "keysRandomized", src: "flags/OddKey.gif" },
 	{ id: "coinsRandomized", src: "flags/coin.png" },
@@ -22,7 +22,7 @@ const settings: { id: keyof Options; src: string }[] = [
 	},
 	{ id: "panelsRandomized", src: "flags/Star_Piece.png" },
 	{
-		id: "dojoRandomized",
+		id: "dojoRandomItems",
 		src: "icons/TheMasterFirst_PM.png",
 	},
 	{
@@ -38,7 +38,7 @@ const settings: { id: keyof Options; src: string }[] = [
 		src: "icons/UltraStone.gif",
 	},
 	{
-		id: "multicoinBlocksRandomized",
+		id: "shuffleSuperMulticoinBlocks",
 		src: "flags/brick.jpg",
 	},
 ];
@@ -61,7 +61,13 @@ const { moving, removePanel } = defineProps<{
 					v-for="setting in settings"
 					:key="setting.id"
 					:src="getImageUrl(setting.src)"
-					:class="{ hide: !options[setting.id] }"
+					:class="{
+						hide:
+							options[setting.id] === false ||
+							options[setting.id] === 0 ||
+							options[setting.id] === '0' ||
+							options[setting.id] === 'Off',
+					}"
 				/>
 			</div>
 		</div>

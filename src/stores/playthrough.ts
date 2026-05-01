@@ -384,7 +384,7 @@ export const usePlaythrough = defineStore("playthrough", {
 				return true;
 			}
 			if (
-				options.getValue("limitChapterLogic") &&
+				options.getValue("requiredChapters").includes("Limit") &&
 				region &&
 				region in regionsPerChapter &&
 				!this.spiritAnnotations[regionsPerChapter[region]!]!.required
@@ -402,9 +402,9 @@ export const usePlaythrough = defineStore("playthrough", {
 			const settings = optionsStore.$state.options;
 			const tags = {
 				Panel: settings.panelsRandomized,
-				Dojo: settings.dojoRandomized,
+				Dojo: settings.dojoRandomItems > 0,
 				Shop: settings.shopsRandomized,
-				Rowf: settings.shopsRandomized && settings.rowfRandomized,
+				Rowf: settings.shopsRandomized && settings.rowfItemsInLogic > 0,
 				Trade: settings.tradingEventRandomized,
 				Letter: settings.lettersRandomized,
 				Koot: settings.koopaKootRandomized,
@@ -415,7 +415,7 @@ export const usePlaythrough = defineStore("playthrough", {
 				"Coin Block": settings.coinBlocksRandomized,
 				Merlow: settings.merlowRandomized,
 				Upgrade: settings.superBlocksRandomized,
-				"Multicoin Block": settings.multicoinBlocksRandomized,
+				"Multicoin Block": settings.shuffleSuperMulticoinBlocks !== "Off",
 				"Closed Forest": !settings.forestOpen,
 				"Shuffle Star Beam": settings.shuffleStarBeam,
 			};

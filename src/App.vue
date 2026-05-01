@@ -108,7 +108,7 @@ const allItemsFiltered = computed(() =>
 		.filter(el => optionsStore.getItemFilter(el.name) !== "hide")
 		.filter(
 			el =>
-				!options.value.limitChapterLogic ||
+				!options.value.requiredChapters.includes("Limit") ||
 				!options.value.hideLCLItems ||
 				!playthroughStore.getLCLHiddenItems().includes(el)
 		)

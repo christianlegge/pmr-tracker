@@ -62,15 +62,14 @@ export type Options = {
 	starHuntTotal: number;
 	starWayStarsNeeded: number;
 	starWaySpiritsNeeded: number;
-	requireSpecificSpirits: boolean;
-	limitChapterLogic: boolean;
-	dungeonShuffle: boolean;
+	requiredChapters: string;
+	dungeonShuffle: string;
 	randomizePuzzles: boolean;
 	startingBoots: string;
 	startingHammer: string;
 	overworldPartners: boolean;
 	shopsRandomized: boolean;
-	rowfRandomized: boolean;
+	rowfItemsInLogic: number;
 	merlowRandomized: boolean;
 	keysRandomized: boolean;
 	panelsRandomized: boolean;
@@ -80,10 +79,10 @@ export type Options = {
 	lettersRandomized: boolean;
 	koopaKootRandomized: boolean;
 	kootCoinsRandomized: boolean;
-	dojoRandomized: boolean;
+	dojoRandomItems: number;
 	tradingEventRandomized: boolean;
 	superBlocksRandomized: boolean;
-	multicoinBlocksRandomized: boolean;
+	shuffleSuperMulticoinBlocks: string;
 	gearShuffle: string;
 };
 
@@ -264,8 +263,9 @@ export const optionsData = {
 	dungeonShuffle: {
 		namespace: "settings",
 		name: "Dungeon Shuffle",
-		type: "boolean",
-		default: false,
+		type: "select",
+		default: "Off",
+		choices: ["Off", "Spirit Dungeons Only", "Inside Bowser's Castle"],
 	},
 	randomizePuzzles: {
 		namespace: "settings",
@@ -314,17 +314,12 @@ export const optionsData = {
 		default: 7,
 		range: [0, 7],
 	},
-	requireSpecificSpirits: {
+	requiredChapters: {
 		namespace: "settings",
-		name: "Require Specific Star Spirits",
-		type: "boolean",
-		default: false,
-	},
-	limitChapterLogic: {
-		namespace: "settings",
-		name: "Limit Chapter Logic",
-		type: "boolean",
-		default: false,
+		name: "Required Chapters",
+		type: "select",
+		default: "Any",
+		choices: ["Any", "Specific", "Specific + Limit Chapter Logic"],
 	},
 	startingBoots: {
 		namespace: "settings",
@@ -352,11 +347,12 @@ export const optionsData = {
 		type: "boolean",
 		default: true,
 	},
-	rowfRandomized: {
+	rowfItemsInLogic: {
 		namespace: "settings",
-		name: "Rowf Shop In Logic",
-		type: "boolean",
-		default: true,
+		name: "Rowf Items In Logic",
+		type: "number",
+		default: 0,
+		range: [0, 5],
 	},
 	merlowRandomized: {
 		namespace: "settings",
@@ -412,11 +408,12 @@ export const optionsData = {
 		type: "boolean",
 		default: true,
 	},
-	dojoRandomized: {
+	dojoRandomItems: {
 		namespace: "settings",
-		name: "Dojo Randomized",
-		type: "boolean",
-		default: true,
+		name: "Dojo Random Items",
+		type: "number",
+		default: 0,
+		range: [0, 5],
 	},
 	tradingEventRandomized: {
 		namespace: "settings",
@@ -430,11 +427,12 @@ export const optionsData = {
 		type: "boolean",
 		default: false,
 	},
-	multicoinBlocksRandomized: {
+	shuffleSuperMulticoinBlocks: {
 		namespace: "settings",
-		name: "Multicoin Blocks Randomized",
-		type: "boolean",
-		default: false,
+		name: "Shuffle Super/Multicoin Blocks",
+		type: "select",
+		default: "Off",
+		choices: ["Off", "Shuffle Together", "Shuffle Anywhere"],
 	},
 	gearShuffle: {
 		namespace: "settings",

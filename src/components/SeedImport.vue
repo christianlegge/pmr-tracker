@@ -24,7 +24,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue("blueHouseOpen", data.BlueHouseOpen);
 	optionsStore.setValue("coinBlocksRandomized", data.IncludeCoinsBlocks);
 	optionsStore.setValue("coinsRandomized", data.IncludeCoinsOverworld);
-	optionsStore.setValue("dojoRandomized", data.IncludeDojo);
+	optionsStore.setValue("dojoRandomItems", data.IncludeDojo);
 	optionsStore.setValue("fastBowserCastle", data.BowsersCastleMode >= 1);
 	optionsStore.setValue("foliageCoinsRandomized", data.IncludeCoinsFoliage);
 	optionsStore.setValue("forestOpen", data.ForeverForestOpen);
@@ -38,13 +38,25 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue("koopaKootRandomized", data.IncludeFavorsMode >= 1);
 	optionsStore.setValue("kootCoinsRandomized", data.IncludeCoinsFavors);
 	optionsStore.setValue("lettersRandomized", data.IncludeLettersMode >= 1);
-	optionsStore.setValue("dungeonShuffle", data.ShuffleDungeonEntrances);
+	optionsStore.setValue(
+		"dungeonShuffle",
+		["Off", "Spirit Dungeons Only", "Inside Bowser's Castle"][
+			data.ShuffleDungeonEntrances
+		]!
+	);
 	optionsStore.setValue("randomizePuzzles", data.RandomizePuzzles);
-	optionsStore.setValue("requireSpecificSpirits", data.RequireSpecificSpirits);
-	optionsStore.setValue("limitChapterLogic", data.LimitChapterLogic);
+	optionsStore.setValue(
+		"requiredChapters",
+		["Any", "Specific", "Specific + Limit Chapter Logic"][
+			data.RequiredChapters
+		]!
+	);
 	optionsStore.setValue("merlowRandomized", data.ProgressionOnMerlow);
 	optionsStore.setValue("mtRuggedOpen", data.MtRuggedOpen);
-	optionsStore.setValue("multicoinBlocksRandomized", data.ShuffleBlocks);
+	optionsStore.setValue(
+		"shuffleSuperMulticoinBlocks",
+		["Off", "Shuffle Together", "Shuffle Anywhere"][data.MultiCoinBlockShuffle]!
+	);
 	optionsStore.setValue("panelsRandomized", data.IncludePanels);
 	optionsStore.setValue("shuffleStarBeam", data.ShuffleStarBeam);
 	optionsStore.setValue("starBeamStarsNeeded", data.StarBeamPowerStarsNeeded);
@@ -53,7 +65,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue("starWayStarsNeeded", data.StarWayPowerStarsNeeded);
 	optionsStore.setValue("starWaySpiritsNeeded", data.StarWaySpiritsNeededCnt);
 	optionsStore.setValue("prologueOpen", data.PrologueOpen);
-	optionsStore.setValue("rowfRandomized", data.ProgressionOnRowf);
+	optionsStore.setValue("rowfItemsInLogic", data.ProgressionOnRowf);
 	optionsStore.setValue(
 		"seedsRequired",
 		Math.min(4, data.MagicalSeedsRequired)
