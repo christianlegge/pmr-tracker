@@ -362,9 +362,7 @@ const canCheckEntrance = computed(() => {
 			></div>
 		</div>
 		<div
-			v-if="
-				info.type === 'chapterReward' && name !== 'Star Rod' && showStarTooltip
-			"
+			v-if="info.type === 'chapterReward' && showStarTooltip"
 			ref="tooltipRef"
 			class="hover-tip star-tooltip"
 			:style="{
@@ -421,12 +419,22 @@ const canCheckEntrance = computed(() => {
 				</svg>
 			</button>
 
-			<h3 v-if="options.dungeonShuffle !== 'Off'">Dungeon Entrances</h3>
+			<h3
+				v-if="
+					options.dungeonShuffle !== 'Off' &&
+					(options.dungeonShuffle === 'Include Bowser\'s Castle' ||
+						name !== 'Star Rod')
+				"
+			>
+				Dungeon Entrances
+			</h3>
 			<button
 				v-for="star in options.dungeonShuffle === 'Off'
 					? []
 					: options.dungeonShuffle === 'Spirit Dungeons Only'
-						? [...Object.getOwnPropertyNames(chapterRewards).slice(0, 7), '']
+						? name === 'Star Rod'
+							? []
+							: [...Object.getOwnPropertyNames(chapterRewards).slice(0, 7), '']
 						: [
 								...Object.getOwnPropertyNames(chapterRewards).slice(0, 7),
 								'Bowser',
@@ -468,11 +476,17 @@ const canCheckEntrance = computed(() => {
 				</svg>
 			</button>
 
-			<h3 v-if="options.requiredChapters.includes('Specific')">
+			<h3
+				v-if="
+					options.requiredChapters.includes('Specific') && name !== 'Star Rod'
+				"
+			>
 				Require Specific Spirits
 			</h3>
 			<button
-				v-if="options.requiredChapters.includes('Specific')"
+				v-if="
+					options.requiredChapters.includes('Specific') && name !== 'Star Rod'
+				"
 				:style="{
 					color: 'white',
 					width: '100%',
