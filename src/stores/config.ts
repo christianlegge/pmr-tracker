@@ -265,7 +265,7 @@ export const optionsData = {
 		name: "Dungeon Shuffle",
 		type: "select",
 		default: "Off",
-		choices: ["Off", "Spirit Dungeons Only", "Inside Bowser's Castle"],
+		choices: ["Off", "Spirit Dungeons Only", "Include Bowser's Castle"],
 	},
 	randomizePuzzles: {
 		namespace: "settings",

@@ -40,7 +40,7 @@ function setRandomizerSettingsFromApiResponse(data: SettingsApiData) {
 	optionsStore.setValue("lettersRandomized", data.IncludeLettersMode >= 1);
 	optionsStore.setValue(
 		"dungeonShuffle",
-		["Off", "Spirit Dungeons Only", "Inside Bowser's Castle"][
+		["Off", "Spirit Dungeons Only", "Include Bowser's Castle"][
 			data.ShuffleDungeonEntrances
 		]!
 	);

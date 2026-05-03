@@ -351,7 +351,7 @@ export const usePlaythrough = defineStore("playthrough", {
 					dungeonRegions[region as keyof typeof dungeonRegions]
 			);
 			if (!shuffledEntrance) {
-				return options.options.dungeonShuffle
+				return options.options.dungeonShuffle !== "Off"
 					? false
 					: getRegionData(region)!.reqs;
 			}

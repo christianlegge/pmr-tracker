@@ -139,7 +139,7 @@ const shouldGlow = computed(() => {
 
 const canCheckEntrance = computed(() => {
 	return (
-		options.value.dungeonShuffle &&
+		options.value.dungeonShuffle !== "Off" &&
 		name in chapterRewards &&
 		options.value.trackerLogic &&
 		playthroughStore.canCheckLocation(
@@ -421,13 +421,17 @@ const canCheckEntrance = computed(() => {
 				</svg>
 			</button>
 
-			<h3>Dungeon Entrances</h3>
+			<h3 v-if="options.dungeonShuffle !== 'Off'">Dungeon Entrances</h3>
 			<button
-				v-for="star in [
-					...Object.getOwnPropertyNames(chapterRewards).slice(0, 7),
-					'Bowser',
-					'',
-				]"
+				v-for="star in options.dungeonShuffle === 'Off'
+					? []
+					: options.dungeonShuffle === 'Spirit Dungeons Only'
+						? [...Object.getOwnPropertyNames(chapterRewards).slice(0, 7), '']
+						: [
+								...Object.getOwnPropertyNames(chapterRewards).slice(0, 7),
+								'Bowser',
+								'',
+							]"
 				:key="star"
 				class="entrance"
 				@click="
